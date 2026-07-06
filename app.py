@@ -16,7 +16,7 @@ CSS_BASE_STYLE = """
 @keyframes fadeInDown {
     0% {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-30px);
     }
     100% {
         opacity: 1;
@@ -31,9 +31,9 @@ CSS_BASE_STYLE = """
     overflow-x: hidden;
 }
 
-/* Applying animation directly to the main content wrapper */
+/* Applying top-to-bottom animation directly to the main content container */
 .block-container {
-    animation: fadeInDown 1.2s ease-out forwards;
+    animation: fadeInDown 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 h1 {
@@ -64,21 +64,21 @@ h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(-10deg);
-    font-size: 70px;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.03);
+    transform: translate(-50%, -50%) rotate(-12deg);
+    font-size: 75px;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.035);
     white-space: nowrap;
     pointer-events: none;
     z-index: 1;
-    font-family: 'Courier New', monospace;
-    letter-spacing: 5px;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    letter-spacing: 8px;
 }
 
 /* Sub-boxes inside Page 5 for Vikars */
 .vikar-box {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 20px;
     border-radius: 15px;
     margin-bottom: 20px;
@@ -160,7 +160,6 @@ def apply_slow_cosmic_animation():
         animation_elements_list.append(element_string)
         
     full_html_canvas = "".join(animation_elements_list)
-    # Loading canvas smoothly without grabbing iframe focus
     str.components.v1.html(full_html_canvas, height=0, scrolling=False)
 
 
@@ -180,7 +179,7 @@ if str.session_state.page == 1:
     
     if str.button("Open My Heart 💖", use_container_width=True):
         with str.spinner("Transitioning Through Space..."):
-            time.sleep(1.5)  # Perfect transition delay
+            time.sleep(1.0)
         str.session_state.page = 2
         str.rerun()
 
@@ -201,7 +200,7 @@ elif str.session_state.page == 2:
     
     if str.button("Next Page ❤️", use_container_width=True):
         with str.spinner("Transitioning Through Space..."):
-            time.sleep(1.5)
+            time.sleep(1.0)
         str.session_state.page = 3
         str.rerun()
 
@@ -222,7 +221,7 @@ elif str.session_state.page == 3:
     
     if str.button("Eternal Prem ✨", use_container_width=True):
         with str.spinner("Transitioning Through Space..."):
-            time.sleep(1.5)
+            time.sleep(1.0)
         str.session_state.page = 4
         str.rerun()
 
@@ -243,7 +242,7 @@ elif str.session_state.page == 4:
     
     if str.button("Agar duniya se alag hona chahty ho prem ke mamle main to click a eternal o god ✨", use_container_width=True):
         with str.spinner("Transitioning Through Space..."):
-            time.sleep(1.5)
+            time.sleep(1.0)
         str.session_state.page = 5
         str.rerun()
 
@@ -292,6 +291,6 @@ elif str.session_state.page == 5:
     
     if str.button("Go to Start 🔄", use_container_width=True):
         with str.spinner("Resetting Space..."):
-            time.sleep(1.2)
+            time.sleep(1.0)
         str.session_state.page = 1
         str.rerun()
