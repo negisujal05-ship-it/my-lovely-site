@@ -1,6 +1,5 @@
 import streamlit as str
 import time
-import random
 
 # Page Setup
 str.set_page_config(page_title="Our Cosmic Milky Way ❤️", page_icon="🌌", layout="centered")
@@ -9,20 +8,28 @@ str.set_page_config(page_title="Our Cosmic Milky Way ❤️", page_icon="🌌", 
 if "page" not in str.session_state:
     str.session_state.page = 1
 
-# --- GLOBAL STYLING ---
-CSS_BASE_STYLE = """
+# --- STYLING ---
+CSS_STYLE = """
 <style>
-.stApp {background: linear-gradient(135deg, #020105 0%, #050312 40%, #0b0518 80%, #11031c 100%); font-family: 'Georgia', serif; color: #ffffff;}
-.stylish-box {background: rgba(5, 3, 12, 0.96); padding: 45px; border-radius: 25px; border: 2px solid #ffffff; text-align: center; margin-bottom: 30px;}
-div.stButton > button {background: linear-gradient(90deg, #ffffff 0%, #e0e0e0 100%) !important; color: #050312 !important; font-weight: bold !important; border-radius: 50px !important; padding: 12px 35px !important; border: none !important; margin: 20px auto !important;}
+.stApp {background: linear-gradient(135deg, #020105 0%, #050312 40%, #0b0518 80%, #11031c 100%); color: #ffffff; font-family: 'Georgia', serif;}
+.stylish-box {background: rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 25px; border: 1px solid #ffffff; text-align: center;}
+div.stButton > button {background: #ffffff !important; color: #000000 !important; font-weight: bold !important; border-radius: 50px !important; padding: 10px 30px !important; border: none !important;}
 </style>
 """
-str.markdown(CSS_BASE_STYLE, unsafe_allow_html=True)
+str.markdown(CSS_STYLE, unsafe_allow_html=True)
 
 # --- PAGE LOGIC ---
 
+# PAGE 1 se 4 (Aapka pehle ka content)
+if str.session_state.page <= 4:
+    str.title(f"Hamari Kahani - Page {str.session_state.page}")
+    str.write("Yahan aapka pehle ka content hai...")
+    if str.button("Next Page"):
+        str.session_state.page += 1
+        str.rerun()
+
 # PAGE 5
-if str.session_state.page == 5:
+elif str.session_state.page == 5:
     str.markdown("<h1>Vikaro Se Mukti: Sacha Prem 🌌</h1>", unsafe_allow_html=True)
     str.markdown(''' 
         <div class="stylish-box"> 
@@ -54,5 +61,3 @@ elif str.session_state.page == 6:
     if str.button("Go to Start 🔄"):
         str.session_state.page = 1
         str.rerun()
-
-# (Agar aapka page 1-4 ka code pehle se hai, toh use iske upar rakhein)
