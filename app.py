@@ -312,7 +312,7 @@ elif str.session_state.page == 6:
     str.markdown("<h1>Krishna Prem: Param Satya ✨</h1>", unsafe_allow_html=True)
     str.markdown(''' 
         <div class="stylish-box"> 
-            <h3>🌌 Bhagwan Krishna ka Prem Sandesh 🌌</h3> 
+            
             <p style="font-size: 20px; line-height: 1.8; font-style: italic;"> 
                 "Prem ka arth hai 'Samarpan'. Krishna ke anusar, prem wahi hai jisme koi maang nahi hoti.<br><br>
                 Jab hum dusro ki khushi mein apni khushi dhoondhte hain, wahi ishwar ka swaroop hai.<br>
