@@ -1,74 +1,91 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="❤️ Radhe Krishna Galaxy ❤️",
-    page_icon="🌙",
+    page_title="Radhe Krishna Love Galaxy",
+    page_icon="❤️",
     layout="wide"
 )
 
-html_code = """
-<div style="
-text-align:center;
-color:white;
-padding:20px;
-font-family:Georgia, serif;
-">
+if "entered" not in st.session_state:
+    st.session_state.entered = False
 
-<h1 style="font-size:55px;">❤️ Radhe Radhe ❤️</h1>
+if not st.session_state.entered:
 
-<h3>🌙 Chand ki roshni mein, ✨ sitaron ki mehfil saji hai...</h3>
-
-<p style="font-size:22px; max-width:900px; margin:auto;">
-💖 Har dhadkan mein tera naam hai,
-🦚 aur har saans mein Radha Krishna ka pyar basa hai.
-</p>
-
-<br>
-
-<h2>💕 Lovely Thoughts 💕</h2>
-
-<p style="font-size:20px;">
-• Saccha pyar kabhi dooriyon se kam nahi hota.<br>
-• Jo dil mein rehta hai, woh hamesha paas rehta hai.<br>
-• Pyar ki sabse khoobsurat baat hai ki woh dil ko sukoon deta hai.<br>
-• Har muskurahat ke peeche kisi khaas ki yaad hoti hai.<br>
-• Mohabbat ek dua hai jo dil se nikalti hai aur rooh tak pahunchti hai.
-</p>
-
-<br>
-
-<h2>💞 Lovely Shayari 💞</h2>
-
-<p style="font-size:22px; line-height:1.8;">
-Teri yaadon ka sitara meri raaton mein chamakta hai,<br>
-Tera naam hi mere dil mein har pal dhadakta hai.<br><br>
-
-Chand bhi feeka lagta hai teri muskaan ke saamne,<br>
-Mera har khwab bas tera hi chehra rakhta hai.
-</p>
-
-<br>
-
-<h2>✨ Radha Krishna ki kripa aur prem sada tumhare jeevan mein bana rahe. ✨</h2>
-
-</div>
-"""
-
-st.markdown(
-    """
+    st.markdown("""
     <style>
     .stApp{
-        background: linear-gradient(
-            180deg,
-            #050816,
-            #0b1026,
-            #140f3a,
-            #000000
-        );
+        background: radial-gradient(circle at center,
+        #1a1a40,
+        #0a0a20,
+        #000000);
+    }
+
+    .welcome-box{
+        text-align:center;
+        margin-top:120px;
+        color:white;
+    }
+
+    .title{
+        font-size:70px;
+        text-shadow:0 0 25px pink;
+    }
+
+    .subtitle{
+        font-size:28px;
+        color:#ffd6f5;
     }
     </style>
-    """,
-    unsafe_allow_html=True
-)
+    """, unsafe_allow_html=True)
 
-st.markdown(html_code, unsafe_allow_html=True)
+    st.markdown("""
+    <div class="welcome-box">
+        <div class="title">❤️ Radhe Krishna ❤️</div>
+        <br>
+        <div class="subtitle">
+            ✨ Welcome To The Lovely Galaxy Of Love ✨
+        </div>
+        <br><br>
+        <h2>🌙 Where Love Meets The Stars 🌙</h2>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.write("")
+    st.write("")
+
+    col1,col2,col3 = st.columns([2,1,2])
+
+    with col2:
+        if st.button("💖 CLICK HERE TO ENTER 💖",
+                     use_container_width=True):
+            st.session_state.entered = True
+            st.rerun()
+
+else:
+
+    st.markdown("""
+    <style>
+    .stApp{
+        background:black;
+        color:white;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    st.title("❤️ Radhe Krishna Galaxy ❤️")
+
+    st.markdown("""
+    ## 💕 Lovely Thoughts 💕
+
+    * Saccha pyar kabhi dooriyon se kam nahi hota.
+    * Jo dil mein rehta hai woh hamesha paas rehta hai.
+    * Mohabbat dil se shuru hoti hai aur rooh tak pahunchti hai.
+
+    ## 💞 Lovely Shayari 💞
+
+    Teri yaadon ka sitara meri raaton mein chamakta hai,  
+    Tera naam hi mere dil mein har pal dhadakta hai.
+
+    Chand bhi feeka lagta hai teri muskaan ke saamne,  
+    Mera har khwab bas tera hi chehra rakhta hai.
+    """)
