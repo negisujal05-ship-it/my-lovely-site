@@ -177,7 +177,6 @@ if str.session_state.page == 1:
 # --- PAGE 2: SECOND INTERFACE ---
 elif str.session_state.page == 2:
     start_falling_effects()
-    
     str.markdown("<h1>Our Cosmic Universe ✨</h1>", unsafe_allow_html=True)
     
     str.markdown("""
@@ -204,10 +203,9 @@ elif str.session_state.page == 2:
             str.rerun()
 
 
-# --- PAGE 3: THIRD INTERFACE (Radha Krishna Divine Lines Added) ---
+# --- PAGE 3: THIRD INTERFACE ---
 elif str.session_state.page == 3:
     start_falling_effects()
-    
     str.markdown("<h1>The Eternal Love ✨🙏</h1>", unsafe_allow_html=True)
     
     str.markdown("""
@@ -225,8 +223,39 @@ elif str.session_state.page == 3:
     </div>
     """, unsafe_allow_html=True)
     
-    # Image content
     str.image("https://images.unsplash.com/photo-1601931649911-37911b33346d?w=600", caption="🙏 Radhe Krishna Ki Kripa Aap Par Bani Rahe 🙏", use_container_width=True)
+    
+    # NEW NAVIGATION TO FOURTH PAGE
+    str.write("")
+    str.markdown("<p style='text-align: center; font-size: 18px; color: #ff6b8b; font-weight: bold;'>Agar prem ko jaana ho to... 👇</p>", unsafe_allow_html=True)
+    
+    col1, col2, col3 = str.columns([1, 1.5, 1])
+    with col2:
+        if str.button("Eternal Prem ✨", use_container_width=True):
+            str.session_state.page = 4
+            str.rerun()
+
+
+# --- PAGE 4: FOURTH INTERFACE (New Surprise Page) ---
+elif str.session_state.page == 4:
+    start_falling_effects()
+    str.markdown("<h1>The Ultimate Destination ❤️</h1>", unsafe_allow_html=True)
+    
+    str.markdown("""
+    <div class="love-letter">
+        <h3 style="color: #ffffff; font-size: 28px; font-family: 'Brush Script MT', cursive; margin-bottom: 15px;">🌌 Sacha Prem Hi Brahmand Hai 🌌</h3>
+        <p style="font-size: 19px; color: #e8e8e8; line-height: 1.8; font-style: italic;">
+            "Prem wo nahi jo kuch samay ke liye ho,<br>
+            prem toh wo hai jo sadiyon tak rooh mein bas jaye.<br><br>
+            Aapki is yatra ka aakhri padaav yahi sikhata hai ki<br>
+            duniya ki sabsay khoobsoorat cheez ko na dekha ja sakta hai, <br>
+            na chhua ja sakta hai... use sirf dil se mehsoos kiya jata hai."
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Beautiful Romantic Silhouette Image for Fourth Page
+    str.image("https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600", caption="✨ Infinite Hearts, Infinite Time ✨", use_container_width=True)
     
     str.write("")
     col1, col2, col3 = str.columns([1, 1.5, 1])
