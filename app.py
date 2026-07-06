@@ -5,20 +5,20 @@ import random
 # Page Setup
 str.set_page_config(page_title="Our Cosmic Milky Way ❤️", page_icon="🌌", layout="centered")
 
-# Custom CSS - Deep Galaxy, Milky Way, White Moon, White Stars & Rain-like White Snow
+# Custom CSS - Deep Galaxy, Glowing Moon, White Stars & Perfect Red Hearts
 str.markdown("""
     <style>
-    /* Full App Background - Deep Milky Way Galaxy Theme */
+    /* Full App Background - Real Deep Milky Way Galaxy Theme */
     .stApp {
-        background: radial-gradient(circle at 75% 25%, rgba(100, 50, 200, 0.45), transparent 50%),
-                    radial-gradient(circle at 25% 75%, rgba(180, 50, 150, 0.35), transparent 60%),
-                    linear-gradient(135deg, #04020a 0%, #0a061c 40%, #140b2a 80%, #250b2b 100%);
+        background: radial-gradient(circle at 80% 20%, rgba(140, 40, 255, 0.5), transparent 50%),
+                    radial-gradient(circle at 20% 80%, rgba(255, 40, 140, 0.4), transparent 60%),
+                    linear-gradient(135deg, #020108 0%, #08051a 30%, #12072b 70%, #200529 100%);
         font-family: 'Georgia', serif;
         color: #ffffff;
         overflow-x: hidden;
     }
     
-    /* Main Heading - Glowing White/Pink Romantic Text */
+    /* Main Heading */
     h1 {
         color: #ffffff;
         text-align: center;
@@ -71,14 +71,12 @@ str.markdown("""
         box-shadow: 0 0 30px rgba(255, 255, 255, 0.9) !important;
     }
     
-    /* Cosmic Falling Elements (White Stars, White Raindrops/Snow) */
+    /* Cosmic Falling Elements Styles */
     .cosmic-item {
         position: fixed;
         top: -10%;
         z-index: 9999;
         pointer-events: none;
-        color: #ffffff !important; /* Everything forced to Pure White */
-        text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
     }
     
     /* Rain-like straight falling animation */
@@ -98,9 +96,8 @@ str.markdown("""
         top: 15%;
         right: 8%;
         font-size: 65px;
-        color: #ffffff;
         opacity: 0.9;
-        filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.85)) brightness(2); /* Pure White Glowing Moon */
+        filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.85)) brightness(2);
         z-index: 1;
         animation: float 6s ease-in-out infinite;
     }
@@ -128,20 +125,29 @@ if click_me:
     with str.spinner("Aapke liye tare aur baarish ki boondein saja raha hoon... 🌌"):
         time.sleep(1.8)
     
-    # Mix pool of White Stars, White Snow, and Raindrops
-    # Gaping text-shadow handles the color overlay perfectly
+    # Mix pool of White Stars, White Snow, and BEAUTIFUL RED HEARTS
     cosmic_html = ""
     white_items = ["✨", "❄️", "⭐", "💧", "✦", "✧"]
+    red_hearts = ["❤️", "💖", "💘"]
     
-    # Generating 45 pure white elements falling like a beautiful rain shower
-    for i in range(45):
-        element = random.choice(white_items)
+    # Generating 50 elements (Mix of white cosmic rain and colorful red hearts)
+    for i in range(50):
+        # Randomly choose between a red heart or a white star/snow element
+        if random.random() > 0.4:
+            element = random.choice(white_items)
+            shadow_color = "rgba(255, 255, 255, 0.8)"
+            text_color = "#ffffff"
+        else:
+            element = random.choice(red_hearts)
+            shadow_color = "rgba(255, 75, 75, 0.8)"
+            text_color = "inherit" # Lets emoji keep its true red color
+            
         left_pos = random.randint(2, 98)
-        duration = random.uniform(4.0, 7.5) # Fast like rain, smooth like snow
+        duration = random.uniform(4.5, 8.0) # Smooth falling speed
         delay = random.uniform(0.0, 4.0)
         size = random.randint(14, 26)
         
-        cosmic_html += f'<div class="cosmic-item rain-fall" style="left: {left_pos}%; animation-duration: {duration}s; animation-delay: {delay}s; font-size: {size}px;">{element}</div>'
+        cosmic_html += f'<div class="cosmic-item rain-fall" style="left: {left_pos}%; animation-duration: {duration}s; animation-delay: {delay}s; font-size: {size}px; color: {text_color}; text-shadow: 0 0 8px {shadow_color};">{element}</div>'
     
     str.markdown(cosmic_html, unsafe_allow_html=True)
     
