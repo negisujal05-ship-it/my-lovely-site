@@ -72,9 +72,6 @@ if click_button:
     
     str.write("") # Khali jagah spacing ke liye
     
-    # Behad sundar Radha Krishna Image (Direct High Quality Link)
-    str.image(
-        "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=600", 
-        caption="✨ Prem Ke Prateek - Radhe Radhe ✨", 
-        use_container_width=True
-    )
+    # Beautiful Divine Radha Krishna Image URL
+    radha_krishna_url = "https://images.unsplash.com/photo-1628134712034-71bc56834eb7?w=600"
+    str.image(radha_krishna_url, caption="✨ Prem Ke Prateek - Radhe Radhe ✨", use_container_width=True)
