@@ -12,7 +12,7 @@ if "page" not in str.session_state:
 # Custom CSS - Deep Black Galaxy Background, Glowing Moon, Fixed White Stars
 str.markdown("""
     <style>
-    /* Full App Background - True Deep Cosmic Galaxy View */
+    /* Full App Background */
     .stApp {
         background: linear-gradient(135deg, #020105 0%, #050312 40%, #0b0518 80%, #11031c 100%);
         font-family: 'Georgia', serif;
@@ -69,14 +69,14 @@ str.markdown("""
         border: 2px solid #ffffff;
         box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.25);
         text-align: center;
-        animation: fadeIn 1.5s;
+        animation: fadeIn 2.5s ease-in-out;
         position: relative;
         z-index: 2;
         margin-bottom: 30px;
     }
     
     @keyframes fadeIn {
-        0% { opacity: 0; transform: translateY(20px); }
+        0% { opacity: 0; transform: translateY(30px); }
         100% { opacity: 1; transform: translateY(0); }
     }
     
@@ -101,7 +101,7 @@ str.markdown("""
         box-shadow: 0 0 30px rgba(255, 255, 255, 0.8) !important;
     }
     
-    /* Falling Elements Styles */
+    /* Falling Elements Styles - (Slowing down the speed) */
     .cosmic-item {
         position: fixed;
         top: -10%;
@@ -112,10 +112,10 @@ str.markdown("""
         animation: rainLinear linear infinite;
     }
     @keyframes rainLinear {
-        0% { top: -10%; transform: translateX(0); opacity: 0; }
-        10% { opacity: 0.9; }
-        90% { opacity: 0.9; }
-        100% { top: 110%; transform: translateX(20px); opacity: 0; }
+        0% { top: -10%; transform: translateX(0) rotate(0deg); opacity: 0; }
+        10% { opacity: 0.8; }
+        90% { opacity: 0.8; }
+        100% { top: 110%; transform: translateX(30px) rotate(20deg); opacity: 0; }
     }
     
     /* Floating White Moon Element */
@@ -127,22 +127,22 @@ str.markdown("""
         opacity: 0.9;
         filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.85)) brightness(2);
         z-index: 1;
-        animation: float 6s ease-in-out infinite;
+        animation: float 8s ease-in-out infinite;
     }
     @keyframes float {
         0% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
+        50% { transform: translateY(-15px); }
         100% { transform: translateY(0px); }
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Function to generate falling effect (Hearts & Rain)
+# Function to generate slow falling effect (Hearts & Rain)
 def start_falling_effects():
     falling_html = ""
     rain_items = ["💧", "❄️"]
     red_hearts = ["❤️", "💖", "💘"]
-    for i in range(45):
+    for i in range(40):
         if random.random() > 0.4:
             element = random.choice(rain_items)
             shadow_color = "rgba(255, 255, 255, 0.6)"
@@ -152,9 +152,10 @@ def start_falling_effects():
             shadow_color = "rgba(255, 75, 75, 0.8)"
             text_color = "inherit" 
         left_pos = random.randint(2, 98)
-        duration = random.uniform(4.5, 7.5) 
-        delay = random.uniform(0.0, 4.0)
-        size = random.randint(14, 26)
+        # Slower speed: Animation duration increased to 8.0 - 13.0 seconds
+        duration = random.uniform(8.0, 13.0) 
+        delay = random.uniform(0.0, 6.0)
+        size = random.randint(14, 25)
         falling_html += f'<div class="cosmic-item rain-fall" style="left: {left_pos}%; animation-duration: {duration}s; animation-delay: {delay}s; font-size: {size}px; color: {text_color}; text-shadow: 0 0 8px {shadow_color};">{element}</div>'
     str.markdown(falling_html, unsafe_allow_html=True)
 
@@ -164,6 +165,7 @@ str.markdown('<div class="milkyway-moon">🌙</div>', unsafe_allow_html=True)
 
 # --- PAGE 1: FIRST INTERFACE ---
 if str.session_state.page == 1:
+    start_falling_effects() # Animation added to Page 1
     str.markdown("<h1>For Someone Special... ✨❤️</h1>", unsafe_allow_html=True)
     str.markdown('<div class="romantic-sub">Ye choti si jagah maine sirf aapke liye banayi hai. Apne dil par haath rakhein aur neeche click karein... 👇</div>', unsafe_allow_html=True)
     
@@ -242,10 +244,8 @@ elif str.session_state.page == 4:
     start_falling_effects()
     str.markdown("<h1>The Ultimate Destination ❤️</h1>", unsafe_allow_html=True)
     
-    photo_url = "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=600"
-    
-    str.markdown(f"""
-    <div style="background-image: linear-gradient(rgba(5, 3, 12, 0.85), rgba(5, 3, 12, 0.85)), url('{photo_url}'); background-size: cover; background-position: center; padding: 40px 35px; border-radius: 25px; border: 2px solid #ffffff; box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.25); text-align: center; position: relative; z-index: 2; margin-bottom: 30px;">
+    str.markdown("""
+    <div style="background-image: linear-gradient(rgba(5, 3, 12, 0.85), rgba(5, 3, 12, 0.85)), url('https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=600'); background-size: cover; background-position: center; padding: 40px 35px; border-radius: 25px; border: 2px solid #ffffff; box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.25); text-align: center; position: relative; z-index: 2; margin-bottom: 30px;">
         <h3 style="color: #ffffff; font-size: 28px; font-family: 'Brush Script MT', cursive; margin-bottom: 15px;">🌌 Sacha Prem Hi Brahmand Hai 🌌</h3>
         <p style="font-size: 19px; color: #e8e8e8; line-height: 1.8; font-style: italic;">
             "Prem wo nahi jo kuch samay ke liye ho,<br>
@@ -273,11 +273,8 @@ elif str.session_state.page == 5:
     start_falling_effects()
     str.markdown("<h1>Vikaro Se Mukti: Sacha Prem 🌌</h1>", unsafe_allow_html=True)
     
-    photo_url_5 = "https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?w=600" 
-    
-    # Is block ke andar saare design ko secure inline CSS se dhal diya gaya hai takki safely HTML render ho ske
-    str.markdown(f"""
-    <div style="background-image: linear-gradient(rgba(5, 3, 12, 0.9), rgba(5, 3, 12, 0.9)), url('{photo_url_5}'); background-size: cover; background-position: center; padding: 35px 25px; border-radius: 25px; border: 2px solid #ffffff; box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.3); text-align: center; position: relative; z-index: 2; margin-bottom: 30px;">
+    str.markdown("""
+    <div style="background-image: linear-gradient(rgba(5, 3, 12, 0.9), rgba(5, 3, 12, 0.9)), url('https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?w=600'); background-size: cover; background-position: center; padding: 35px 25px; border-radius: 25px; border: 2px solid #ffffff; box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.3); text-align: center; position: relative; z-index: 2; margin-bottom: 30px;">
         <h3 style="color: #ff6b8b; font-size: 30px; font-family: 'Brush Script MT', cursive; margin-bottom: 25px;">✨ Prem Se Vikaro Ka Naash ✨</h3>
         <p style="font-size: 18px; color: #e0e0e0; font-style: italic; margin-bottom: 30px;">
             "Jab jivan mein sachay aur pavitra prem ka agaman hota hai, toh mann ke saare vikar (vices) khud-ba-khud vileen ho jaate hain..."
@@ -295,7 +292,7 @@ elif str.session_state.page == 5:
         <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 15px; margin-bottom: 20px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
             <h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">2. मोह (Moh) — <span style="color: #ffb3c1;">Attachment</span></h4>
             <p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">
-                Moh insaan ko bandhan mein baandhta hai aur swarthi banata hai, jagki sacha prem azaad karna sikhata hai. Prem mein 'paane' ki zidd nahi, balki samarpit hone ka sukoon hota hai.
+                Moh insaan ko bandhan mein baandhta hai aur swarthi banata hai, jabki sacha prem azaad karna sikhata hai. Prem mein 'paane' ki zidd nahi, balki samarpit hone ka sukoon hota hai.
             </p>
         </div>
         
