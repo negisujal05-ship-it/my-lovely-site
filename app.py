@@ -75,6 +75,17 @@ str.markdown("""
         margin-bottom: 30px;
     }
     
+    /* Vikar Card Styling */
+    .vikar-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        text-align: left;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    
     @keyframes fadeIn {
         0% { opacity: 0; transform: translateY(20px); }
         100% { opacity: 1; transform: translateY(0); }
@@ -84,7 +95,7 @@ str.markdown("""
     div.stButton > button {
         background: linear-gradient(90deg, #ffffff 0%, #e0e0e0 100%) !important;
         color: #050312 !important;
-        font-size: 20px !important;
+        font-size: 18px !important;
         font-weight: bold !important;
         border-radius: 50px !important;
         padding: 12px 35px !important;
@@ -93,9 +104,11 @@ str.markdown("""
         transition: all 0.3s ease !important;
         display: block;
         margin: 0 auto !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
     }
     div.stButton > button:hover {
-        transform: scale(1.08) !important;
+        transform: scale(1.05) !important;
         box-shadow: 0 0 30px rgba(255, 255, 255, 0.8) !important;
     }
     
@@ -235,13 +248,11 @@ elif str.session_state.page == 3:
             str.rerun()
 
 
-# --- PAGE 4: FOURTH INTERFACE (Watermark Feature Ready) ---
+# --- PAGE 4: FOURTH INTERFACE ---
 elif str.session_state.page == 4:
     start_falling_effects()
     str.markdown("<h1>The Ultimate Destination ❤️</h1>", unsafe_allow_html=True)
     
-    # WATERMARK CSS METHOD: Isko dhyan se dekhna, yahan photo piche set hogi
-    # Default image abhi ek Radha Krishna ki sundar digital art di hai jo watermark banegi
     photo_url = "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=600"
     
     str.markdown(f"""
@@ -272,6 +283,92 @@ elif str.session_state.page == 4:
             na chhua ja sakta hai... use sirf dil se mehsoos kiya jata hai."
         </p>
         <p style="font-size: 15px; color: #ffb3c1; margin-top: 20px; font-weight: bold;">🙏 Radhe Krishna - Prem Hi Poornata Hai 🙏</p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    str.write("")
+    str.markdown("<p style='text-align: center; font-size: 18px; color: #ff6b8b; font-weight: bold;'>Agle adhyay ki ore badhein... 👇</p>", unsafe_allow_html=True)
+    
+    col1, col2, col3 = str.columns([0.2, 2.6, 0.2])
+    with col2:
+        if str.button("Agar duniya se alag hona chahty ho prem ke mamle main to click a eternal o god ✨", use_container_width=True):
+            str.session_state.page = 5
+            str.rerun()
+
+
+# --- PAGE 5: FIFTH INTERFACE (Vikars Defined via Love) ---
+elif str.session_state.page == 5:
+    start_falling_effects()
+    str.markdown("<h1>Vikaro Se Mukti: Sacha Prem 🌌</h1>", unsafe_allow_html=True)
+    
+    # WATERMARK BACKGROUND READY (Aap jab chahein apni image ka link lagayein)
+    photo_url_5 = "https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?w=600" 
+    
+    str.markdown(f"""
+    <style>
+    .watermark-box-5 {{
+        background-image: linear-gradient(rgba(5, 3, 12, 0.9), rgba(5, 3, 12, 0.9)), url('{photo_url_5}');
+        background-size: cover;
+        background-position: center;
+        padding: 35px 25px;
+        border-radius: 25px;
+        border: 2px solid #ffffff;
+        box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.3);
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 30px;
+    }}
+    </style>
+    
+    <div class="watermark-box-5">
+        <h3 style="color: #ff6b8b; font-size: 30px; font-family: 'Brush Script MT', cursive; margin-bottom: 25px;">✨ Prem Se Vikaro Ka Naash ✨</h3>
+        <p style="font-size: 18px; color: #e0e0e0; font-style: italic; margin-bottom: 30px;">
+            "Jab jivan mein sachay aur pavitra prem ka agaman hota hai, toh mann ke saare vikar (vices) khud-ba-khud vileen ho jaate hain..."
+        </p>
+        
+        <!-- 1. DAR / FEAR -->
+        <div class="vikar-card">
+            <h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">1. डर (Bhay) — <span style="color: #ffb3c1;">Fear</span></h4>
+            <p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">
+                Sacha prem har tarah ke darr ko mita deta hai. Jab aap kisi se nishwarth prem karte hain, toh khone ka ya zamane ka koi bhay nahi rehta, kyunki prem aatma ko nirbhay (fearless) bana deta hai.
+            </p>
+        </div>
+        
+        <!-- 2. MOH / ATTACHMENT -->
+        <div class="vikar-card">
+            <h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">2. मोह (Moh) — <span style="color: #ffb3c1;">Attachment</span></h4>
+            <p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">
+                Moh insaan ko bandhan mein baandhta hai aur swarthi banata hai, jabki sacha prem azaad karna sikhata hai. Prem mein 'paane' ki zidd nahi, balki samarpit hone ka sukoon hota hai.
+            </p>
+        </div>
+        
+        <!-- 3. KRODH / ANGER -->
+        <div class="vikar-card">
+            <h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">3. क्रोध (Krodh) — <span style="color: #ffb3c1;">Anger</span></h4>
+            <p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">
+                Krodh mann ki agni hai jo sab kuch jala deti hai. Par jahan sacha prem hota hai, wahan krodh ke liye koi jagah nahi hoti; prem us agni par kshama (forgiveness) aur shanti ka thanda jal chhidak deta hai.
+            </p>
+        </div>
+        
+        <!-- 4. IRSHYA / JEALOUSY -->
+        <div class="vikar-card">
+            <h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">4. ईर्ष्या (Irshya) — <span style="color: #ffb3c1;">Jealousy</span></h4>
+            <p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">
+                Irshya tab paida hoti hai jab hum doosron se tulna karte hain. Sacha prem hume doosron ki khushi mein apni khushi dekhna sikhata hai, jisse jalan poori tarah se mit jaati hai.
+            </p>
+        </div>
+        
+        <!-- 5. AHANKAR / EGO -->
+        <div class="vikar-card">
+            <h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">5. अहंकार (Ahankar) — <span style="color: #ffb3c1;">Ego</span></h4>
+            <p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">
+                Ahankar kehta hai 'Main sabsay upar hoon', lekin prem kehta hai 'Main toh kuch bhi nahi'. Prem mein 'Main' (Ego) mit jata hai aur sirf 'Hum' baaki reh jata hai. Sacha prem ahankar ko poori tarah shunya kar deta hai.
+            </p>
+        </div>
+        
+        <hr style="border: 0; height: 1px; background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.4), rgba(255,255,255,0)); margin: 25px 0;">
+        <p style="font-size: 16px; color: #ff6b8b; font-weight: bold;">✨ Jo Prem Ko Chunndta Hai, Wo Saare Vikaro Se Mukt Ho Jata Hai ✨</p>
     </div>
     """, unsafe_allow_html=True)
     
