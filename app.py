@@ -9,23 +9,19 @@ str.set_page_config(page_title="Our Cosmic Milky Way ❤️", page_icon="🌌", 
 if "page" not in str.session_state:
     str.session_state.page = 1
 
-# --- GLOBAL STYLING (WITH IMAGE + TEXT WATERMARK & ADVANCED TRANSITION) ---
+# --- GLOBAL STYLING (WITH TOP-TO-BOTTOM TRANSITION & WATERMARK) ---
 CSS_BASE_STYLE = """
 <style>
-/* Smooth Top-to-Bottom Premium Transition */
+/* Smooth Top-to-Bottom Page Entry Animation */
 @keyframes fadeInDown {
     0% {
         opacity: 0;
-        transform: translateY(-40px);
+        transform: translateY(-30px);
     }
     100% {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 .stApp {
@@ -35,10 +31,9 @@ html {
     overflow-x: hidden;
 }
 
-/* Page container gets hardware accelerated smooth transition */
+/* Applying top-to-bottom animation directly to the main content container */
 .block-container {
-    animation: fadeInDown 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    will-change: transform, opacity;
+    animation: fadeInDown 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 h1 {
@@ -50,10 +45,10 @@ h1 {
     margin-top: 40px;
 }
 
-/* Premium Box with BOTH Text & Image Watermark Capabilities */
+/* Premium Black Romantic Glowing Box with Watermark Effect */
 .stylish-box {
-    background: rgba(5, 3, 12, 0.96);
-    padding: 45px 35px;
+    background: rgba(5, 3, 12, 0.95);
+    padding: 40px 35px;
     border-radius: 25px;
     border: 2px solid #ffffff;
     box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.25);
@@ -64,24 +59,7 @@ h1 {
     overflow: hidden;
 }
 
-/* IMAGE WATERMARK LAYER (Placed perfectly in background inside the box) */
-.image-watermark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Aap apni pasand ki transparent PNG background image ka link yahan daal sakte hain */
-    background-image: url('https://raw.githubusercontent.com/negisujal05-ship-it/my-lovely-site/main/cosmic_heart.png'); 
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.04; /* Bilkul halka subtle effect */
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* TEXT WATERMARK LAYER */
+/* Elegant Invisible Watermark Text Behind Content */
 .watermark {
     position: absolute;
     top: 50%;
@@ -89,18 +67,12 @@ h1 {
     transform: translate(-50%, -50%) rotate(-12deg);
     font-size: 75px;
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.025);
+    color: rgba(255, 255, 255, 0.035);
     white-space: nowrap;
     pointer-events: none;
     z-index: 1;
     font-family: 'Impact', 'Arial Black', sans-serif;
     letter-spacing: 8px;
-}
-
-/* Content wrapper inside box to stay on top of watermarks */
-.box-content {
-    position: relative;
-    z-index: 3;
 }
 
 /* Sub-boxes inside Page 5 for Vikars */
@@ -151,7 +123,7 @@ str.markdown(CSS_BASE_STYLE, unsafe_allow_html=True)
 str.markdown('<div class="milkyway-moon">🌙</div>', unsafe_allow_html=True)
 
 
-# --- BACKGROUND COSMIC RAIN (Optimized) ---
+# --- BACKGROUND COSMIC RAIN (Optimized to prevent window focusing glitch) ---
 def apply_slow_cosmic_animation():
     cosmic_symbols = ["💧", "❄️", "❤️", "💖", "💘"]
     animation_elements_list = []
@@ -198,13 +170,10 @@ if str.session_state.page == 1:
     
     str.markdown('''
         <div class="stylish-box">
-            <div class="image-watermark"></div>
             <div class="watermark">COSMIC LOVE</div>
-            <div class="box-content">
-                <p style="font-size: 22px; color: #f0f0f0; line-height: 1.6; font-style: italic;">
-                    Ye choti si jagah maine sirf aapke liye banayi hai. Apne dil par haath rakhein aur neeche click karein... 👇
-                </p>
-            </div>
+            <p style="font-size: 22px; color: #f0f0f0; line-height: 1.6; font-style: italic; position: relative; z-index: 2;">
+                Ye choti si jagah maine sirf aapke liye banayi hai. Apne dil par haath rakhein aur neeche click karein... 👇
+            </p>
         </div>
     ''', unsafe_allow_html=True)
     
@@ -221,14 +190,11 @@ elif str.session_state.page == 2:
     
     str.markdown('''
         <div class="stylish-box">
-            <div class="image-watermark"></div>
             <div class="watermark">FOREVER</div>
-            <div class="box-content">
-                <h2 style="color: #ffffff; font-size: 38px; margin-bottom: 20px;">Dear Special Someone, 🌸</h2>
-                <p style="font-size: 20px; color: #fdfdfd; line-height: 1.8; font-style: italic;">
-                    "Is anant aasmaan mein laakhon sitare hain,<br>par hamare is chote se brahmand mein,<br>sabsay haseen aur pyari chamak aapki muskurahat ki hai.<br><br>Aapka zindagi mein hona kisi tohfe se kam nahi,<br>aap har pal ko khubsurat aur sukoon se bhar dete ho."
-                </p>
-            </div>
+            <h2 style="color: #ffffff; font-size: 38px; margin-bottom: 20px; position: relative; z-index: 2;">Dear Special Someone, 🌸</h2>
+            <p style="font-size: 20px; color: #fdfdfd; line-height: 1.8; font-style: italic; position: relative; z-index: 2;">
+                "Is anant aasmaan mein laakhon sitare hain,<br>par hamare is chote se brahmand mein,<br>sabsay haseen aur pyari chamak aapki muskurahat ki hai.<br><br>Aapka zindagi mein hona kisi tohfe se kam nahi,<br>aap har pal ko khubsurat aur sukoon se bhar dete ho."
+            </p>
         </div>
     ''', unsafe_allow_html=True)
     
@@ -245,14 +211,11 @@ elif str.session_state.page == 3:
     
     str.markdown('''
         <div class="stylish-box">
-            <div class="image-watermark"></div>
             <div class="watermark">RADHE RADHE</div>
-            <div class="box-content">
-                <h3 style="color: #ff6b8b; font-size: 28px; margin-bottom: 15px;">✨ Radhe Radhe - Shaswat Prem ✨</h3>
-                <p style="font-size: 19px; color: #e8e8e8; line-height: 1.8; font-style: italic;">
-                    "Prem ka matlab ek dusre ko paana nahi,<br>balki ek dusre mein poori tarah kho jaana hai.<br><br>Radha Krishna ka prem sikhata hai ki rishtey aatma se judte hain,<br>jahan dooriyan bhi dono ko alag nahi kar saktin.<br>Aapki zindagi bhi isi pavitra prem aur sukoon se hamesha mehakti rahe."
-                </p>
-            </div>
+            <h3 style="color: #ff6b8b; font-size: 28px; margin-bottom: 15px; position: relative; z-index: 2;">✨ Radhe Radhe - Shaswat Prem ✨</h3>
+            <p style="font-size: 19px; color: #e8e8e8; line-height: 1.8; font-style: italic; position: relative; z-index: 2;">
+                "Prem ka matlab ek dusre ko paana nahi,<br>balki ek dusre mein poori tarah kho jaana hai.<br><br>Radha Krishna ka prem sikhata hai ki rishtey aatma se judte hain,<br>jahan dooriyan bhi dono ko alag nahi kar saktin.<br>Aapki zindagi bhi isi pavitra prem aur sukoon se hamesha mehakti rahe."
+            </p>
         </div>
     ''', unsafe_allow_html=True)
     
@@ -269,14 +232,11 @@ elif str.session_state.page == 4:
     
     str.markdown('''
         <div class="stylish-box">
-            <div class="image-watermark"></div>
             <div class="watermark">ETERNAL</div>
-            <div class="box-content">
-                <h3 style="color: #ffffff; font-size: 28px; margin-bottom: 15px;">🌌 Sacha Prem Hi Brahmand Hai 🌌</h3>
-                <p style="font-size: 19px; color: #e8e8e8; line-height: 1.8; font-style: italic;">
-                    "Prem wo nahi jo kuch samay ke liye ho,<br>prem toh wo hai jo sadiyon tak rooh mein bas jaye.<br><br>Aapki is yatra ka aakhri padaav yahi sikhata hai ki<br>duniya ki sabsay khoobsoorat cheez ko na dekha ja sakta hai, <br>na chhua ja sakta hai... use sirf dil se mehsoos kiya jata hai."
-                </p>
-            </div>
+            <h3 style="color: #ffffff; font-size: 28px; margin-bottom: 15px; position: relative; z-index: 2;">🌌 Sacha Prem Hi Brahmand Hai 🌌</h3>
+            <p style="font-size: 19px; color: #e8e8e8; line-height: 1.8; font-style: italic; position: relative; z-index: 2;">
+                "Prem wo nahi jo kuch samay ke liye ho,<br>prem toh wo hai jo sadiyon tak rooh mein bas jaye.<br><br>Aapki is yatra ka aakhri padaav yahi sikhata hai ki<br>duniya ki sabsay khoobsoorat cheez ko na dekha ja sakta hai, <br>na chhua ja sakta hai... use sirf dil se mehsoos kiya jata hai."
+            </p>
         </div>
     ''', unsafe_allow_html=True)
     
@@ -291,14 +251,10 @@ elif str.session_state.page == 5:
     apply_slow_cosmic_animation()
     str.markdown("<h1>Vikaro Se Mukti: Sacha Prem 🌌</h1>", unsafe_allow_html=True)
     
-    str.markdown('''
-        <div class="stylish-box">
-            <div class="image-watermark"></div>
-            <div class="watermark" style="font-size:55px;">MUKTI</div>
-            <div class="box-content">
-                <h3 style="color: #ff6b8b; font-size: 30px; margin-bottom: 25px;">✨ Prem Se Vikaro Ka Naash ✨</h3>
-                <p style="font-size: 18px; color: #e0e0e0; font-style: italic; margin-bottom: 30px;">"Jab jivan mein sachay aur pavitra prem ka agaman hota hai, toh mann ke saare vikar (vices) khud-ba-khud vileen ho jaate hain..."</p>
-    ''', unsafe_allow_html=True)
+    str.markdown('<div class="stylish-box">', unsafe_allow_html=True)
+    str.markdown('<div class="watermark" style="font-size:55px;">MUKTI</div>', unsafe_allow_html=True)
+    str.markdown('<h3 style="color: #ff6b8b; font-size: 30px; margin-bottom: 25px; position: relative; z-index: 2;">✨ Prem Se Vikaro Ka Naash ✨</h3>', unsafe_allow_html=True)
+    str.markdown('<p style="font-size: 18px; color: #e0e0e0; font-style: italic; margin-bottom: 30px; position: relative; z-index: 2;">"Jab jivan mein sachay aur pavitra prem ka agaman hota hai, toh mann ke saare vikar (vices) khud-ba-khud vileen ho jaate hain..."</p>', unsafe_allow_html=True)
     
     # 1. DAR / FEAR Block
     str.markdown('<div class="vikar-box">', unsafe_allow_html=True)
@@ -330,8 +286,8 @@ elif str.session_state.page == 5:
     str.markdown('<p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">Ahankar kehta hai \'Main sabsay upar hoon\', lekin prem kehta hai \'Main toh kuch bhi nahi\'. Prem mein \'Main\' (Ego) mit jata hai aur sirf \'Hum\' baaki reh jata hai. Sacha prem ahankar ko poori tarah shunya kar deta hai.</p>', unsafe_allow_html=True)
     str.markdown('</div>', unsafe_allow_html=True)
     
-    str.markdown('<p style="font-size: 16px; color: #ff6b8b; font-weight: bold; text-align: center; margin-top: 25px;">✨ Jo Prem Ko Chunndta Hai, Wo Saare Vikaro Se Mukt Ho Jata Hai ✨</p>', unsafe_allow_html=True)
-    str.markdown('</div></div>', unsafe_allow_html=True)
+    str.markdown('<p style="font-size: 16px; color: #ff6b8b; font-weight: bold; text-align: center; margin-top: 25px; position: relative; z-index: 2;">✨ Jo Prem Ko Chunndta Hai, Wo Saare Vikaro Se Mukt Ho Jata Hai ✨</p>', unsafe_allow_html=True)
+    str.markdown('</div>', unsafe_allow_html=True)
     
     if str.button("Go to Start 🔄", use_container_width=True):
         with str.spinner("Resetting Space..."):
