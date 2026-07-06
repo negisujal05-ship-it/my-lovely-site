@@ -338,28 +338,12 @@ elif str.session_state.page == 5:
             time.sleep(1.0)
         str.session_state.page = 1
         str.rerun()
-        # PAGE 5: VIKAR DEFINITIONS
-elif str.session_state.page == 5:
-    str.markdown("<h1>Vikaro Se Mukti: Sacha Prem 🌌</h1>", unsafe_allow_html=True)
-    str.markdown(''' 
-        <div class="stylish-box"> 
-            <h3>✨ Prem Se Vikaro Ka Naash ✨</h3> 
-            <p>Jab jivan mein sacha prem hota hai, toh mann ke ye paanch vikar khud-ba-khud vileen ho jaate hain:</p>
-        </div> 
-    ''', unsafe_allow_html=True)
-    
-    str.markdown('<div class="vikar-box"><h4>1. डर (Bhay/Fear)</h4><p>Prem aatma ko nirbhay banata hai. Sacha prem khone ka darr mita deta hai.</p></div>', unsafe_allow_html=True)
-    str.markdown('<div class="vikar-box"><h4>2. मोह (Moh/Attachment)</h4><p>Moh bandhan hai, jabki prem azaadi hai. Prem mein swarth nahi, samarpana hota hai.</p></div>', unsafe_allow_html=True)
-    str.markdown('<div class="vikar-box"><h4>3. क्रोध (Krodh/Anger)</h4><p>Prem ki shanti krodh ki agni ko shaant kar deti hai.</p></div>', unsafe_allow_html=True)
-    str.markdown('<div class="vikar-box"><h4>4. ईर्ष्या (Irshya/Jealousy)</h4><p>Sacha prem dusro ki khushi mein apni khushi dekhna sikhata hai.</p></div>', unsafe_allow_html=True)
-    str.markdown('<div class="vikar-box"><h4>5. अहंकार (Ahankar/Ego)</h4><p>Prem mein "Main" mit kar sirf "Hum" ya "Woh" reh jata hai.</p></div>', unsafe_allow_html=True)
-    
-    # Button to go to Page 6
+       # Button to go to Page 6
     if str.button("Enter to Love World 💖"):
         str.session_state.page = 6
         str.rerun()
 
-# PAGE 6: KRISHNA PREM DEFINITION
+# PAGE 6 (Krishna Prem Definition)
 elif str.session_state.page == 6:
     str.markdown("<h1>Krishna Prem: Param Satya ✨</h1>", unsafe_allow_html=True)
     str.markdown(''' 
