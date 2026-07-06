@@ -64,7 +64,7 @@ str.markdown("""
     /* Content Box / Love Letter Styling */
     .love-letter {
         background-color: rgba(5, 3, 12, 0.95);
-        padding: 30px;
+        padding: 35px;
         border-radius: 25px;
         border: 2px solid #ffffff;
         box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.25);
@@ -160,12 +160,11 @@ def start_falling_effects():
 str.markdown('<div class="milkyway-moon">🌙</div>', unsafe_allow_html=True)
 
 
-# --- PAGE 1: FIRST INTERFACE (Sirf Button aur Heading) ---
+# --- PAGE 1: FIRST INTERFACE ---
 if str.session_state.page == 1:
     str.markdown("<h1>For Someone Special... ✨❤️</h1>", unsafe_allow_html=True)
     str.markdown('<div class="romantic-sub">Ye choti si jagah maine sirf aapke liye banayi hai. Apne dil par haath rakhein aur neeche click karein... 👇</div>', unsafe_allow_html=True)
     
-    # Centered Button Layout
     col1, col2, col3 = str.columns([1, 1.5, 1])
     with col2:
         if str.button("Open My Heart 💖", use_container_width=True):
@@ -175,25 +174,30 @@ if str.session_state.page == 1:
             str.rerun()
 
 
-# --- PAGE 2: SECOND INTERFACE (Pehle wale elements poori tarah saaf) ---
+# --- PAGE 2: SECOND INTERFACE (Lovely lines added here) ---
 elif str.session_state.page == 2:
-    start_falling_effects() # Hearts & Rain effect active on Page 2
+    start_falling_effects()
     
     str.markdown("<h1>Our Cosmic Universe ✨</h1>", unsafe_allow_html=True)
     
-    # Aap is section mein jo likhne ko kahenge wo hum baad mein add karenge
+    # Beautiful Romantic Lines inside the letter
     str.markdown("""
     <div class="love-letter">
-        <h2 style="color: #ffffff; font-family: 'Brush Script MT', cursive; font-size: 35px;">Dear Special Someone, 🌸</h2>
-        <p style="font-size: 19px; color: #f0f0f0; line-height: 1.8; font-style: italic;">
-            (Aap yahan jo likhwana chahte hain, mujhe bataiye... main use yahan set kar dunga!) 😊
+        <h2 style="color: #ffffff; font-family: 'Brush Script MT', cursive; font-size: 38px; text-shadow: 0 0 10px rgba(255,255,255,0.5); margin-bottom: 20px;">Dear Special Someone, 🌸</h2>
+        <p style="font-size: 20px; color: #fdfdfd; line-height: 1.8; font-style: italic; font-weight: 500;">
+            "Is anant aasmaan mein laakhon sitare hain,<br>
+            par hamare is chote se brahmand mein,<br>
+            sabsay haseen aur pyari chamak aapki muskurahat ki hai.<br><br>
+            Aapka zindagi mein hona kisi tohfe se kam nahi,<br>
+            aap har pal ko khubsurat aur sukoon se bhar dete ho."
         </p>
+        <hr style="border: 0; height: 1px; background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0)); margin: 25px 0;">
+        <p style="font-size: 16px; color: #ffb3c1; letter-spacing: 1px;">💖 Ek sacha ehsaas jo hamesha qayam rahega 💖</p>
     </div>
     """, unsafe_allow_html=True)
     
     str.markdown("<p style='text-align: center; font-size: 18px; color: #ff6b8b; font-weight: bold;'>Agla surprise dekhne ke liye neeche dil par click karein... 👇</p>", unsafe_allow_html=True)
     
-    # Next Page Button at the Bottom
     col1, col2, col3 = str.columns([1, 1.5, 1])
     with col2:
         if str.button("Next Page ❤️", use_container_width=True):
@@ -201,9 +205,9 @@ elif str.session_state.page == 2:
             str.rerun()
 
 
-# --- PAGE 3: THIRD INTERFACE (Second page saaf aur ye naya interface) ---
+# --- PAGE 3: THIRD INTERFACE ---
 elif str.session_state.page == 3:
-    start_falling_effects() # Effects continue on Page 3
+    start_falling_effects()
     
     str.markdown("<h1>The Eternal Love ✨🙏</h1>", unsafe_allow_html=True)
     
@@ -211,15 +215,14 @@ elif str.session_state.page == 3:
     <div class="love-letter">
         <h3 style="color: #ff6b8b; font-size: 26px;">✨ Radhe Radhe - Shaswat Prem ✨</h3>
         <p style="font-size: 18px; color: #e0e0e0; line-height: 1.6;">
-            Zindagi mein chahe kitne bhi sitare badal jayein, par sacha prem aur sukoon hamesha qayam rehta hai. ✨💫
+            Radha-Krishna ji ke prem ki tarah, aapki zindagi bhi hamesha sacha prem, anant khushiyan aur sukoon se bhari rahe. 
+            Aapki ye muskurahat aur naya sikhne ka jazba hamesha aise hi chamakta rahe! 🌌💫
         </p>
     </div>
     """, unsafe_allow_html=True)
     
-    # Divine Image
     str.image("https://images.unsplash.com/photo-1601931649911-37911b33346d?w=600", caption="✨ Anant Prem Aur Vishwas ✨", use_container_width=True)
     
-    # Dobara start par jaane ke liye chota button
     str.write("")
     col1, col2, col3 = str.columns([1, 1.5, 1])
     with col2:
