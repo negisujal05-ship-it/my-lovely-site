@@ -235,13 +235,34 @@ elif str.session_state.page == 3:
             str.rerun()
 
 
-# --- PAGE 4: FOURTH INTERFACE (Image Updated to Radha Krishna) ---
+# --- PAGE 4: FOURTH INTERFACE (Watermark Feature Ready) ---
 elif str.session_state.page == 4:
     start_falling_effects()
     str.markdown("<h1>The Ultimate Destination ❤️</h1>", unsafe_allow_html=True)
     
-    str.markdown("""
-    <div class="love-letter">
+    # WATERMARK CSS METHOD: Isko dhyan se dekhna, yahan photo piche set hogi
+    # Default image abhi ek Radha Krishna ki sundar digital art di hai jo watermark banegi
+    photo_url = "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=600"
+    
+    str.markdown(f"""
+    <style>
+    .watermark-box {{
+        background-image: linear-gradient(rgba(5, 3, 12, 0.85), rgba(5, 3, 12, 0.85)), url('{photo_url}');
+        background-size: cover;
+        background-position: center;
+        padding: 40px 35px;
+        border-radius: 25px;
+        border: 2px solid #ffffff;
+        box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.25);
+        text-align: center;
+        animation: fadeIn 1.5s;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 30px;
+    }}
+    </style>
+    
+    <div class="watermark-box">
         <h3 style="color: #ffffff; font-size: 28px; font-family: 'Brush Script MT', cursive; margin-bottom: 15px;">🌌 Sacha Prem Hi Brahmand Hai 🌌</h3>
         <p style="font-size: 19px; color: #e8e8e8; line-height: 1.8; font-style: italic;">
             "Prem wo nahi jo kuch samay ke liye ho,<br>
@@ -250,11 +271,9 @@ elif str.session_state.page == 4:
             duniya ki sabsay khoobsoorat cheez ko na dekha ja sakta hai, <br>
             na chhua ja sakta hai... use sirf dil se mehsoos kiya jata hai."
         </p>
+        <p style="font-size: 15px; color: #ffb3c1; margin-top: 20px; font-weight: bold;">🙏 Radhe Krishna - Prem Hi Poornata Hai 🙏</p>
     </div>
     """, unsafe_allow_html=True)
-    
-    # Updated to a beautiful divine silhouette style Radha Krishna Image
-    str.image("https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=600", caption="🙏 Radhe Krishna - Prem Hi Poornata Hai 🙏", use_container_width=True)
     
     str.write("")
     col1, col2, col3 = str.columns([1, 1.5, 1])
