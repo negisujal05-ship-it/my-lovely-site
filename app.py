@@ -1,174 +1,146 @@
-import streamlit as str
-import time
-import random
+import streamlit as st
 
-# Page Setup
-str.set_page_config(page_title="Our Cosmic Milky Way ❤️", page_icon="🌌", layout="centered")
+st.set_page_config(
+    page_title="Radhe Krishna Galaxy",
+    page_icon="🦚",
+    layout="wide"
+)
 
-# Custom CSS - Deep Galaxy, Glowing Moon, White Stars & Perfect Red Hearts
-str.markdown("""
-    <style>
-    /* Full App Background - Real Deep Milky Way Galaxy Theme */
-    .stApp {
-        background: radial-gradient(circle at 80% 20%, rgba(140, 40, 255, 0.5), transparent 50%),
-                    radial-gradient(circle at 20% 80%, rgba(255, 40, 140, 0.4), transparent 60%),
-                    linear-gradient(135deg, #020108 0%, #08051a 30%, #12072b 70%, #200529 100%);
-        font-family: 'Georgia', serif;
-        color: #ffffff;
-        overflow-x: hidden;
-    }
-    
-    /* Main Heading */
-    h1 {
-        color: #ffffff;
-        text-align: center;
-        font-size: 42px;
-        font-weight: bold;
-        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 2px 2px 5px rgba(0, 0, 0, 0.9);
-        margin-top: 10px;
-    }
-    
-    /* Subtitle Text */
-    .romantic-sub {
-        color: #e0e0e0;
-        font-size: 20px;
-        text-align: center;
-        font-style: italic;
-        margin-bottom: 30px;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-    }
-    
-    /* Love Letter Box */
-    .love-letter {
-        background-color: rgba(8, 5, 20, 0.92);
-        padding: 30px;
-        border-radius: 25px;
-        border: 2px solid #ffffff;
-        box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.3);
-        text-align: center;
-        animation: fadeIn 2.5s;
-    }
-    
-    @keyframes fadeIn {
-        0% { opacity: 0; transform: translateY(20px); }
-        100% { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Button Styling Customization */
-    div.stButton > button {
-        background: linear-gradient(90deg, #ffffff 0%, #e0e0e0 100%) !important;
-        color: #100a26 !important;
-        font-size: 20px !important;
-        font-weight: bold !important;
-        border-radius: 50px !important;
-        padding: 12px 30px !important;
-        border: none !important;
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5) !important;
-        transition: all 0.3s ease !important;
-    }
-    div.stButton > button:hover {
-        transform: scale(1.08) !important;
-        box-shadow: 0 0 30px rgba(255, 255, 255, 0.9) !important;
-    }
-    
-    /* Cosmic Falling Elements Styles */
-    .cosmic-item {
-        position: fixed;
-        top: -10%;
-        z-index: 9999;
-        pointer-events: none;
-    }
-    
-    /* Rain-like straight falling animation */
-    .rain-fall {
-        animation: rainLinear linear infinite;
-    }
-    @keyframes rainLinear {
-        0% { top: -10%; transform: translateX(0); opacity: 0; }
-        10% { opacity: 0.9; }
-        90% { opacity: 0.9; }
-        100% { top: 110%; transform: translateX(20px); opacity: 0; }
-    }
-    
-    /* Floating White Moon Element */
-    .milkyway-moon {
-        position: fixed;
-        top: 15%;
-        right: 8%;
-        font-size: 65px;
-        opacity: 0.9;
-        filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.85)) brightness(2);
-        z-index: 1;
-        animation: float 6s ease-in-out infinite;
-    }
-    @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0px); }
-    }
-    </style>
-""", unsafe_allow_html=True)
+html_code = """
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html, body {
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background: radial-gradient(circle at center, #111133, #000000);
+}
 
-# Glowing White Moon Always on Screen
-str.markdown('<div class="milkyway-moon">🌙</div>', unsafe_allow_html=True)
+.main-container{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+}
 
-# Main Screen Text
-str.markdown("<h1>For Someone Special... ✨❤️</h1>", unsafe_allow_html=True)
-str.markdown('<div class="romantic-sub">Ye choti si jagah maine sirf aapke liye banayi hai. Apne dil par haath rakhein aur neeche click karein... 👇</div>', unsafe_allow_html=True)
+.center-box{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    color:white;
+    z-index:100;
+}
 
-# Centered Button Layout
-col1, col2, col3 = str.columns([1, 1.2, 1])
-with col2:
-    click_me = str.button("Open My Heart 💖", use_container_width=True)
+.center-box h1{
+    font-size:55px;
+    text-shadow:0 0 20px pink;
+}
 
-if click_me:
-    with str.spinner("Aapke liye tare aur baarish ki boondein saja raha hoon... 🌌"):
-        time.sleep(1.8)
-    
-    # Mix pool of White Stars, White Snow, and BEAUTIFUL RED HEARTS
-    cosmic_html = ""
-    white_items = ["✨", "❄️", "⭐", "💧", "✦", "✧"]
-    red_hearts = ["❤️", "💖", "💘"]
-    
-    # Generating 50 elements (Mix of white cosmic rain and colorful red hearts)
-    for i in range(50):
-        # Randomly choose between a red heart or a white star/snow element
-        if random.random() > 0.4:
-            element = random.choice(white_items)
-            shadow_color = "rgba(255, 255, 255, 0.8)"
-            text_color = "#ffffff"
-        else:
-            element = random.choice(red_hearts)
-            shadow_color = "rgba(255, 75, 75, 0.8)"
-            text_color = "inherit" # Lets emoji keep its true red color
-            
-        left_pos = random.randint(2, 98)
-        duration = random.uniform(4.5, 8.0) # Smooth falling speed
-        delay = random.uniform(0.0, 4.0)
-        size = random.randint(14, 26)
-        
-        cosmic_html += f'<div class="cosmic-item rain-fall" style="left: {left_pos}%; animation-duration: {duration}s; animation-delay: {delay}s; font-size: {size}px; color: {text_color}; text-shadow: 0 0 8px {shadow_color};">{element}</div>'
-    
-    str.markdown(cosmic_html, unsafe_allow_html=True)
-    
-    # Pure Romantic Love Letter content
-    str.markdown("""
-    <div class="love-letter">
-        <h2 style="color: #ffffff; font-family: 'Brush Script MT', cursive; font-size: 35px; text-shadow: 0 0 10px rgba(255,255,255,0.5);">Dear Special Someone, 🌸</h2>
-        <p style="font-size: 19px; color: #f0f0f0; line-height: 1.8; font-style: italic;">
-            "Kuch log zindagi mein aate hain aur use hamesha ke liye khubsurat bana dete hain...<br>
-            Aap unhi mein se ek ho. Aapka sikhna, badhna aur har pal muskurana dil ko chu jata hai."
-        </p>
-        <hr style="border: 0; height: 1px; background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0)); margin: 20px 0;">
-        <p style="font-size: 18px; color: #ffffff; font-weight: bold; text-shadow: 0 0 5px rgba(255,255,255,0.4);">
-            Radha-Krishna ji ke prem ki tarah, aapki zindagi bhi hamesha sacha prem, <br>
-            anant khushiyan aur sukoon se bhari rahe. ✨✨
-        </p>
-        <p style="font-size: 15px; color: #ccc; margin-top: 15px;">❤️ Always keep smiling, because your smile belongs to this world ❤️</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    str.write("") # Blank space
-    
-    # 100% Working Beautiful Divine Radha Krishna Image Artwork
-    str.image("https://images.unsplash.com/photo-1601931649911-37911b33346d?w=600", caption="✨ Radhe Radhe - Shaswat Prem ✨", use_container_width=True)
+.center-box img{
+    width:420px;
+    border-radius:20px;
+    box-shadow:0 0 40px rgba(255,255,255,0.5);
+}
+
+.star{
+    position:absolute;
+    color:white;
+    animation:starMove linear infinite;
+}
+
+.snow{
+    position:absolute;
+    color:#dff6ff;
+    animation:fall linear infinite;
+}
+
+.heart{
+    position:absolute;
+    color:pink;
+    animation:fall linear infinite;
+}
+
+.moon{
+    position:absolute;
+    top:40px;
+    right:60px;
+    font-size:90px;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-50px);
+    }
+    to{
+        transform:translateY(110vh);
+    }
+}
+
+@keyframes starMove{
+    from{
+        transform:translateX(-10vw);
+    }
+    to{
+        transform:translateX(110vw);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="main-container">
+
+<div class="moon">🌙</div>
+
+<div class="center-box">
+    <h1>❤️ Radhe Radhe ❤️</h1>
+    <img src="https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?w=1200">
+    <h2>जय श्री राधे कृष्णा 🦚</h2>
+</div>
+
+<script>
+
+for(let i=0;i<120;i++){
+    let s=document.createElement("div");
+    s.className="star";
+    s.innerHTML="✦";
+    s.style.left=Math.random()*100+"vw";
+    s.style.top=Math.random()*100+"vh";
+    s.style.fontSize=(5+Math.random()*15)+"px";
+    s.style.animationDuration=(20+Math.random()*40)+"s";
+    document.body.appendChild(s);
+}
+
+for(let i=0;i<150;i++){
+    let s=document.createElement("div");
+    s.className="snow";
+    s.innerHTML="❄";
+    s.style.left=Math.random()*100+"vw";
+    s.style.fontSize=(8+Math.random()*12)+"px";
+    s.style.animationDuration=(15+Math.random()*20)+"s";
+    s.style.animationDelay=Math.random()*10+"s";
+    document.body.appendChild(s);
+}
+
+for(let i=0;i<60;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤";
+    h.style.left=Math.random()*100+"vw";
+    h.style.fontSize=(12+Math.random()*18)+"px";
+    h.style.animationDuration=(20+Math.random()*20)+"s";
+    h.style.animationDelay=Math.random()*10+"s";
+    document.body.appendChild(h);
+}
+
+</script>
+
+</div>
+</body>
+</html>
+"""
+
+st.components.v1.html(html_code, height=900, scrolling=False)
