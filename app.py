@@ -28,5 +28,5 @@ if str.button("Click Me! ❤️"):
     str.write("Aap hamesha sikhne aur naye cheezein try karne ke liye ready rehte ho, and that is amazing! ✨")
     str.write("Hope aapka din aaj ka bahut lovely aur badiya rahe! 🌸")
     
-    # Direct working Image/GIF link
-    str.image("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3g1cXg1cXg1cXg1cXg1cXg1cXg1cXg1cXg1cXg1cXg1cXg1cXg1&ep=v1_gifs_search&rid=giphy.gif&ct=g", width=300)
+    # Ekdum sahi aur direct image link (Radha Krishna Photo)
+    str.image("https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=500", caption="✨ Radhe Radhe ✨", use_container_width=True)
