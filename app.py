@@ -75,17 +75,6 @@ str.markdown("""
         margin-bottom: 30px;
     }
     
-    /* Vikar Card Styling */
-    .vikar-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        padding: 20px;
-        border-radius: 15px;
-        margin-bottom: 20px;
-        text-align: left;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-    
     @keyframes fadeIn {
         0% { opacity: 0; transform: translateY(20px); }
         100% { opacity: 1; transform: translateY(0); }
@@ -256,24 +245,7 @@ elif str.session_state.page == 4:
     photo_url = "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=600"
     
     str.markdown(f"""
-    <style>
-    .watermark-box {{
-        background-image: linear-gradient(rgba(5, 3, 12, 0.85), rgba(5, 3, 12, 0.85)), url('{photo_url}');
-        background-size: cover;
-        background-position: center;
-        padding: 40px 35px;
-        border-radius: 25px;
-        border: 2px solid #ffffff;
-        box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.25);
-        text-align: center;
-        animation: fadeIn 1.5s;
-        position: relative;
-        z-index: 2;
-        margin-bottom: 30px;
-    }}
-    </style>
-    
-    <div class="watermark-box">
+    <div style="background-image: linear-gradient(rgba(5, 3, 12, 0.85), rgba(5, 3, 12, 0.85)), url('{photo_url}'); background-size: cover; background-position: center; padding: 40px 35px; border-radius: 25px; border: 2px solid #ffffff; box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.25); text-align: center; position: relative; z-index: 2; margin-bottom: 30px;">
         <h3 style="color: #ffffff; font-size: 28px; font-family: 'Brush Script MT', cursive; margin-bottom: 15px;">🌌 Sacha Prem Hi Brahmand Hai 🌌</h3>
         <p style="font-size: 19px; color: #e8e8e8; line-height: 1.8; font-style: italic;">
             "Prem wo nahi jo kuch samay ke liye ho,<br>
@@ -289,46 +261,30 @@ elif str.session_state.page == 4:
     str.write("")
     str.markdown("<p style='text-align: center; font-size: 18px; color: #ff6b8b; font-weight: bold;'>Agle adhyay ki ore badhein... 👇</p>", unsafe_allow_html=True)
     
-    col1, col2, col3 = str.columns([0.2, 2.6, 0.2])
+    col1, col2, col3 = str.columns([0.1, 2.8, 0.1])
     with col2:
         if str.button("Agar duniya se alag hona chahty ho prem ke mamle main to click a eternal o god ✨", use_container_width=True):
             str.session_state.page = 5
             str.rerun()
 
 
-# --- PAGE 5: FIFTH INTERFACE (Vikars Defined via Love) ---
+# --- PAGE 5: FIFTH INTERFACE (Fixed Code Without Any HTML Escape Errors) ---
 elif str.session_state.page == 5:
     start_falling_effects()
     str.markdown("<h1>Vikaro Se Mukti: Sacha Prem 🌌</h1>", unsafe_allow_html=True)
     
-    # WATERMARK BACKGROUND READY (Aap jab chahein apni image ka link lagayein)
     photo_url_5 = "https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?w=600" 
     
+    # Is block ke andar saare design ko secure inline CSS se dhal diya gaya hai takki safely HTML render ho ske
     str.markdown(f"""
-    <style>
-    .watermark-box-5 {{
-        background-image: linear-gradient(rgba(5, 3, 12, 0.9), rgba(5, 3, 12, 0.9)), url('{photo_url_5}');
-        background-size: cover;
-        background-position: center;
-        padding: 35px 25px;
-        border-radius: 25px;
-        border: 2px solid #ffffff;
-        box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.3);
-        text-align: center;
-        position: relative;
-        z-index: 2;
-        margin-bottom: 30px;
-    }}
-    </style>
-    
-    <div class="watermark-box-5">
+    <div style="background-image: linear-gradient(rgba(5, 3, 12, 0.9), rgba(5, 3, 12, 0.9)), url('{photo_url_5}'); background-size: cover; background-position: center; padding: 35px 25px; border-radius: 25px; border: 2px solid #ffffff; box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.3); text-align: center; position: relative; z-index: 2; margin-bottom: 30px;">
         <h3 style="color: #ff6b8b; font-size: 30px; font-family: 'Brush Script MT', cursive; margin-bottom: 25px;">✨ Prem Se Vikaro Ka Naash ✨</h3>
         <p style="font-size: 18px; color: #e0e0e0; font-style: italic; margin-bottom: 30px;">
             "Jab jivan mein sachay aur pavitra prem ka agaman hota hai, toh mann ke saare vikar (vices) khud-ba-khud vileen ho jaate hain..."
         </p>
         
         <!-- 1. DAR / FEAR -->
-        <div class="vikar-card">
+        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 15px; margin-bottom: 20px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
             <h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">1. डर (Bhay) — <span style="color: #ffb3c1;">Fear</span></h4>
             <p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">
                 Sacha prem har tarah ke darr ko mita deta hai. Jab aap kisi se nishwarth prem karte hain, toh khone ka ya zamane ka koi bhay nahi rehta, kyunki prem aatma ko nirbhay (fearless) bana deta hai.
@@ -336,15 +292,15 @@ elif str.session_state.page == 5:
         </div>
         
         <!-- 2. MOH / ATTACHMENT -->
-        <div class="vikar-card">
+        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 15px; margin-bottom: 20px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
             <h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">2. मोह (Moh) — <span style="color: #ffb3c1;">Attachment</span></h4>
             <p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">
-                Moh insaan ko bandhan mein baandhta hai aur swarthi banata hai, jabki sacha prem azaad karna sikhata hai. Prem mein 'paane' ki zidd nahi, balki samarpit hone ka sukoon hota hai.
+                Moh insaan ko bandhan mein baandhta hai aur swarthi banata hai, jagki sacha prem azaad karna sikhata hai. Prem mein 'paane' ki zidd nahi, balki samarpit hone ka sukoon hota hai.
             </p>
         </div>
         
         <!-- 3. KRODH / ANGER -->
-        <div class="vikar-card">
+        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 15px; margin-bottom: 20px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
             <h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">3. क्रोध (Krodh) — <span style="color: #ffb3c1;">Anger</span></h4>
             <p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">
                 Krodh mann ki agni hai jo sab kuch jala deti hai. Par jahan sacha prem hota hai, wahan krodh ke liye koi jagah nahi hoti; prem us agni par kshama (forgiveness) aur shanti ka thanda jal chhidak deta hai.
@@ -352,15 +308,15 @@ elif str.session_state.page == 5:
         </div>
         
         <!-- 4. IRSHYA / JEALOUSY -->
-        <div class="vikar-card">
-            <h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">4. ईर्ष्या (Irshya) — <span style="color: #ffb3c1;">Jealousy</span></h4>
+        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 15px; margin-bottom: 20px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+            <h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">4. ईर्ष्या (Irshya) — <span style="color: #ffb3c1;">Zero Jealousy</span></h4>
             <p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">
                 Irshya tab paida hoti hai jab hum doosron se tulna karte hain. Sacha prem hume doosron ki khushi mein apni khushi dekhna sikhata hai, jisse jalan poori tarah se mit jaati hai.
             </p>
         </div>
         
         <!-- 5. AHANKAR / EGO -->
-        <div class="vikar-card">
+        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 15px; margin-bottom: 20px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
             <h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">5. अहंकार (Ahankar) — <span style="color: #ffb3c1;">Ego</span></h4>
             <p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">
                 Ahankar kehta hai 'Main sabsay upar hoon', lekin prem kehta hai 'Main toh kuch bhi nahi'. Prem mein 'Main' (Ego) mit jata hai aur sirf 'Hum' baaki reh jata hai. Sacha prem ahankar ko poori tarah shunya kar deta hai.
