@@ -53,17 +53,6 @@ h1 {
     position: relative;
     z-index: 2;
 }
-.love-letter {
-    background-color: rgba(5, 3, 12, 0.95);
-    padding: 35px;
-    border-radius: 25px;
-    border: 2px solid #ffffff;
-    box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.25);
-    text-align: center;
-    position: relative;
-    z-index: 2;
-    margin-bottom: 30px;
-}
 div.stButton > button {
     background: linear-gradient(90deg, #ffffff 0%, #e0e0e0 100%) !important;
     color: #050312 !important;
@@ -80,19 +69,6 @@ div.stButton > button {
 div.stButton > button:hover {
     transform: scale(1.05) !important;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.8) !important;
-}
-.cosmic-item {
-    position: fixed;
-    top: -10%;
-    z-index: 9999;
-    pointer-events: none;
-    animation: rainLinear linear infinite;
-}
-@keyframes rainLinear {
-    0% { top: -10%; transform: translateX(0); opacity: 0; }
-    10% { opacity: 0.8; }
-    90% { opacity: 0.8; }
-    100% { top: 110%; transform: translateX(30px); opacity: 0; }
 }
 .milkyway-moon {
     position: fixed;
@@ -117,18 +93,32 @@ VIKAR_TEMPLATE_END = '</div>'
 str.markdown(CSS_BASE_STYLE, unsafe_allow_html=True)
 str.markdown('<div class="milkyway-moon">🌙</div>', unsafe_allow_html=True)
 
-# Pure Python Slow Animation Generator Execution function
+# Python execution function to generate slow-falling animation canvas
 def apply_slow_cosmic_animation():
-    animation_elements_list = []
     cosmic_symbols = ["💧", "❄️", "❤️", "💖", "💘"]
+    animation_elements_list = []
     
-    for item_index in range(35):
+    # CSS wrapper to build custom full-screen background animation
+    animation_elements_list.append("<style>")
+    animation_elements_list.append("""
+    body { margin: 0; overflow: hidden; background: transparent; }
+    .cosmic-item { position: fixed; top: -10%; z-index: 9999; pointer-events: none; animation: rainLinear linear infinite; }
+    @keyframes rainLinear {
+        0% { top: -10%; transform: translateX(0); opacity: 0; }
+        10% { opacity: 0.8; }
+        90% { opacity: 0.8; }
+        100% { top: 110%; transform: translateX(40px); opacity: 0; }
+    }
+    """)
+    animation_elements_list.append("</style>")
+    
+    for item_index in range(40):
         chosen_symbol = random.choice(cosmic_symbols)
-        left_coordinate = random.randint(3, 97)
-        # Behad slow falling speed control: 9 se 15 seconds runtime delivery
-        slow_speed_duration = random.uniform(9.0, 15.0)
-        staggered_delay = random.uniform(0.0, 5.0)
-        pixel_size = random.randint(15, 24)
+        left_coordinate = random.randint(2, 98)
+        # Extremely slow falling speed: 10.0 to 16.0 seconds
+        slow_speed_duration = random.uniform(10.0, 16.0)
+        staggered_delay = random.uniform(0.0, 6.0)
+        pixel_size = random.randint(16, 26)
         
         glow_color = "rgba(255, 75, 75, 0.8)" if chosen_symbol in ["❤️", "💖", "💘"] else "rgba(255, 255, 255, 0.6)"
         
@@ -141,8 +131,9 @@ def apply_slow_cosmic_animation():
         )
         animation_elements_list.append(element_string)
         
-    full_animation_html = "".join(animation_elements_list)
-    str.markdown(full_animation_html, unsafe_allow_html=True)
+    full_html_canvas = "".join(animation_elements_list)
+    # Streamlit components integration guarantees animation execution on all pages
+    str.components.v1.html(full_html_canvas, height=0, scrolling=False)
 
 
 # --- PAGE 1 ---
@@ -207,41 +198,41 @@ elif str.session_state.page == 4:
             str.session_state.page = 5
             str.rerun()
 
-# --- PAGE 5 (COMPLETELY REWRITTEN AND FIXED IN PURE PYTHON VARIABLES) ---
+# --- PAGE 5 (VARIABLE STRUCTURE EXECUTED WITH PURE PYTHON ROUTINES) ---
 elif str.session_state.page == 5:
     apply_slow_cosmic_animation()
     str.markdown("<h1>Vikaro Se Mukti: Sacha Prem 🌌</h1>", unsafe_allow_html=True)
     
-    # Python Multi-line Variables for structural containment
+    # Containment initialization using predefined strict variables
     str.markdown(CARD_V1_START, unsafe_allow_html=True)
     str.markdown('<h3 style="color: #ff6b8b; font-size: 30px; margin-bottom: 25px;">✨ Prem Se Vikaro Ka Naash ✨</h3>', unsafe_allow_html=True)
     str.markdown('<p style="font-size: 18px; color: #e0e0e0; font-style: italic; margin-bottom: 30px;">"Jab jivan mein sachay aur pavitra prem ka agaman hota hai, toh mann ke saare vikar (vices) khud-ba-khud vileen ho jaate hain..."</p>', unsafe_allow_html=True)
     
-    # 1. DAR / FEAR
+    # 1. DAR / FEAR Block
     str.markdown(VIKAR_TEMPLATE_START, unsafe_allow_html=True)
     str.markdown('<h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">1. डर (Bhay) — <span style="color: #ffb3c1;">Fear</span></h4>', unsafe_allow_html=True)
     str.markdown('<p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">Sacha prem har tarah ke darr ko mita deta hai. Jab aap kisi se nishwarth prem karte hain, toh khone ka ya zamane ka koi bhay nahi rehta, kyunki prem aatma ko nirbhay (fearless) bana deta hai.</p>', unsafe_allow_html=True)
     str.markdown(VIKAR_TEMPLATE_END, unsafe_allow_html=True)
     
-    # 2. MOH / ATTACHMENT
+    # 2. MOH / ATTACHMENT Block
     str.markdown(VIKAR_TEMPLATE_START, unsafe_allow_html=True)
     str.markdown('<h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">2. मोह (Moh) — <span style="color: #ffb3c1;">Attachment</span></h4>', unsafe_allow_html=True)
-    str.markdown('<p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">Moh insaan ko bandhan mein baandhta hai aur swarthi banata hai, jagki sacha prem azaad karna sikhata hai. Prem mein \'paane\' ki zidd nahi, balki samarpit hone ka sukoon hota hai.</p>', unsafe_allow_html=True)
+    str.markdown('<p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">Moh insaan ko bandhan mein baandhta hai aur swarthi banata hai, jisse sacha prem azaad karna sikhata hai. Prem mein \'paane\' ki zidd nahi, balki samarpit hone ka sukoon hota hai.</p>', unsafe_allow_html=True)
     str.markdown(VIKAR_TEMPLATE_END, unsafe_allow_html=True)
     
-    # 3. KRODH / ANGER
+    # 3. KRODH / ANGER Block
     str.markdown(VIKAR_TEMPLATE_START, unsafe_allow_html=True)
     str.markdown('<h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">3. क्रोध (Krodh) — <span style="color: #ffb3c1;">Anger</span></h4>', unsafe_allow_html=True)
     str.markdown('<p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">Krodh mann ki agni hai jo sab kuch jala deti hai. Par jahan sacha prem hota hai, wahan krodh ke liye koi jagah nahi hoti; prem us agni par kshama (forgiveness) aur shanti ka thanda jal chhidak deta hai.</p>', unsafe_allow_html=True)
     str.markdown(VIKAR_TEMPLATE_END, unsafe_allow_html=True)
     
-    # 4. IRSHYA / JEALOUSY
+    # 4. IRSHYA / JEALOUSY Block
     str.markdown(VIKAR_TEMPLATE_START, unsafe_allow_html=True)
     str.markdown('<h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">4. ईर्ष्या (Irshya) — <span style="color: #ffb3c1;">Zero Jealousy</span></h4>', unsafe_allow_html=True)
     str.markdown('<p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">Irshya tab paida hoti hai jab hum doosron se tulna karte hain. Sacha prem hume doosron ki khushi mein apni khushi dekhna sikhata hai, jisse jalan poori tarah se mit jaati hai.</p>', unsafe_allow_html=True)
     str.markdown(VIKAR_TEMPLATE_END, unsafe_allow_html=True)
     
-    # 5. AHANKAR / EGO
+    # 5. AHANKAR / EGO Block
     str.markdown(VIKAR_TEMPLATE_START, unsafe_allow_html=True)
     str.markdown('<h4 style="color: #ffffff; margin: 0 0 8px 0; font-size: 20px;">5. अहंकार (Ahankar) — <span style="color: #ffb3c1;">Ego</span></h4>', unsafe_allow_html=True)
     str.markdown('<p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">Ahankar kehta hai \'Main sabsay upar hoon\', lekin prem kehta hai \'Main toh kuch bhi nahi\'. Prem mein \'Main\' (Ego) mit jata hai aur sirf \'Hum\' baaki reh jata hai. Sacha prem ahankar ko poori tarah shunya kar deta hai.</p>', unsafe_allow_html=True)
