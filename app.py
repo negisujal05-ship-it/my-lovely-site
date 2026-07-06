@@ -338,3 +338,42 @@ elif str.session_state.page == 5:
             time.sleep(1.0)
         str.session_state.page = 1
         str.rerun()
+        # PAGE 5: VIKAR DEFINITIONS
+elif str.session_state.page == 5:
+    str.markdown("<h1>Vikaro Se Mukti: Sacha Prem 🌌</h1>", unsafe_allow_html=True)
+    str.markdown(''' 
+        <div class="stylish-box"> 
+            <h3>✨ Prem Se Vikaro Ka Naash ✨</h3> 
+            <p>Jab jivan mein sacha prem hota hai, toh mann ke ye paanch vikar khud-ba-khud vileen ho jaate hain:</p>
+        </div> 
+    ''', unsafe_allow_html=True)
+    
+    str.markdown('<div class="vikar-box"><h4>1. डर (Bhay/Fear)</h4><p>Prem aatma ko nirbhay banata hai. Sacha prem khone ka darr mita deta hai.</p></div>', unsafe_allow_html=True)
+    str.markdown('<div class="vikar-box"><h4>2. मोह (Moh/Attachment)</h4><p>Moh bandhan hai, jabki prem azaadi hai. Prem mein swarth nahi, samarpana hota hai.</p></div>', unsafe_allow_html=True)
+    str.markdown('<div class="vikar-box"><h4>3. क्रोध (Krodh/Anger)</h4><p>Prem ki shanti krodh ki agni ko shaant kar deti hai.</p></div>', unsafe_allow_html=True)
+    str.markdown('<div class="vikar-box"><h4>4. ईर्ष्या (Irshya/Jealousy)</h4><p>Sacha prem dusro ki khushi mein apni khushi dekhna sikhata hai.</p></div>', unsafe_allow_html=True)
+    str.markdown('<div class="vikar-box"><h4>5. अहंकार (Ahankar/Ego)</h4><p>Prem mein "Main" mit kar sirf "Hum" ya "Woh" reh jata hai.</p></div>', unsafe_allow_html=True)
+    
+    # Button to go to Page 6
+    if str.button("Enter to Love World 💖"):
+        str.session_state.page = 6
+        str.rerun()
+
+# PAGE 6: KRISHNA PREM DEFINITION
+elif str.session_state.page == 6:
+    str.markdown("<h1>Krishna Prem: Param Satya ✨</h1>", unsafe_allow_html=True)
+    str.markdown(''' 
+        <div class="stylish-box"> 
+            <h3>🌌 Bhagwan Krishna ka Prem Sandesh 🌌</h3> 
+            <p style="font-size: 20px; line-height: 1.8; font-style: italic;"> 
+                "Prem ka arth hai 'Samarpan'. Krishna ke anusar, prem wahi hai jisme koi maang nahi hoti.<br><br>
+                Jab hum dusro ki khushi mein apni khushi dhoondhte hain, wahi ishwar ka swaroop hai.<br>
+                Prem bandhan nahi, balki aatma ki mukti hai. Jab tum khud ko bhool kar keval priya ke liye jeete ho, 
+                tab tumhare bhitar 'Main' mit jata hai aur 'Krishna' ka prem jag uthta hai." 
+            </p> 
+        </div> 
+    ''', unsafe_allow_html=True)
+    
+    if str.button("Go to Start 🔄"):
+        str.session_state.page = 1
+        str.rerun()
