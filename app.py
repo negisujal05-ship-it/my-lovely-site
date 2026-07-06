@@ -174,13 +174,12 @@ if str.session_state.page == 1:
             str.rerun()
 
 
-# --- PAGE 2: SECOND INTERFACE (Lovely lines added here) ---
+# --- PAGE 2: SECOND INTERFACE ---
 elif str.session_state.page == 2:
     start_falling_effects()
     
     str.markdown("<h1>Our Cosmic Universe ✨</h1>", unsafe_allow_html=True)
     
-    # Beautiful Romantic Lines inside the letter
     str.markdown("""
     <div class="love-letter">
         <h2 style="color: #ffffff; font-family: 'Brush Script MT', cursive; font-size: 38px; text-shadow: 0 0 10px rgba(255,255,255,0.5); margin-bottom: 20px;">Dear Special Someone, 🌸</h2>
@@ -205,7 +204,7 @@ elif str.session_state.page == 2:
             str.rerun()
 
 
-# --- PAGE 3: THIRD INTERFACE ---
+# --- PAGE 3: THIRD INTERFACE (Radha Krishna Divine Lines Added) ---
 elif str.session_state.page == 3:
     start_falling_effects()
     
@@ -213,15 +212,21 @@ elif str.session_state.page == 3:
     
     str.markdown("""
     <div class="love-letter">
-        <h3 style="color: #ff6b8b; font-size: 26px;">✨ Radhe Radhe - Shaswat Prem ✨</h3>
-        <p style="font-size: 18px; color: #e0e0e0; line-height: 1.6;">
-            Radha-Krishna ji ke prem ki tarah, aapki zindagi bhi hamesha sacha prem, anant khushiyan aur sukoon se bhari rahe. 
-            Aapki ye muskurahat aur naya sikhne ka jazba hamesha aise hi chamakta rahe! 🌌💫
+        <h3 style="color: #ff6b8b; font-size: 28px; font-family: 'Brush Script MT', cursive; margin-bottom: 15px;">✨ Radhe Radhe - Shaswat Prem ✨</h3>
+        <p style="font-size: 19px; color: #e8e8e8; line-height: 1.8; font-style: italic;">
+            "Prem ka matlab ek dusre ko paana nahi,<br>
+            balki ek dusre mein poori tarah kho jaana hai.<br><br>
+            Radha Krishna ka prem sikhata hai ki rishtey aatma se judte hain,<br>
+            jahan dooriyan bhi dono ko alag nahi kar saktin.<br>
+            Aapki zindagi bhi isi pavitra prem aur sukoon se hamesha mehakti rahe."
         </p>
+        <hr style="border: 0; height: 1px; background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0)); margin: 20px 0;">
+        <p style="font-size: 17px; color: #ffffff; font-weight: bold;">✨ Anant Prem Aur Atut Vishwas ✨</p>
     </div>
     """, unsafe_allow_html=True)
     
-    str.image("https://images.unsplash.com/photo-1601931649911-37911b33346d?w=600", caption="✨ Anant Prem Aur Vishwas ✨", use_container_width=True)
+    # Image content
+    str.image("https://images.unsplash.com/photo-1601931649911-37911b33346d?w=600", caption="🙏 Radhe Krishna Ki Kripa Aap Par Bani Rahe 🙏", use_container_width=True)
     
     str.write("")
     col1, col2, col3 = str.columns([1, 1.5, 1])
