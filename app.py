@@ -338,3 +338,56 @@ elif str.session_state.page == 5:
             time.sleep(1.0)
         str.session_state.page = 1
         str.rerun()
+
+# ... (Baaki code waisa hi rahega jaisa pehle tha)
+
+# --- MODIFIED PAGE 5 ---
+elif str.session_state.page == 5:
+    apply_slow_cosmic_animation()
+    str.markdown("<h1>Vikaro Se Mukti: Sacha Prem 🌌</h1>", unsafe_allow_html=True)
+    str.markdown(''' 
+        <div class="stylish-box"> 
+            <div class="image-watermark"></div> 
+            <div class="watermark" style="font-size:55px;">MUKTI</div> 
+            <div class="box-content"> 
+                <h3 style="color: #ff6b8b; font-size: 30px; margin-bottom: 25px;">✨ Prem Se Vikaro Ka Naash ✨</h3> 
+                <p style="font-size: 18px; color: #e0e0e0; font-style: italic; margin-bottom: 30px;">"Jab jivan mein sachay aur pavitra prem ka agaman hota hai, toh mann ke saare vikar (vices) khud-ba-khud vileen ho jaate hain..."</p> 
+    ''', unsafe_allow_html=True)
+    
+    # Vikar blocks (Fear, Moh, Krodh, Irshya, Ahankar)
+    # ... (Yahan purane vikaro wale code rahenge)
+    
+    str.markdown('</div></div>', unsafe_allow_html=True)
+    
+    # Button to go to Page 6
+    if str.button("Enter to Love World 💖", use_container_width=True):
+        with str.spinner("Entering the World of Pure Love..."):
+            time.sleep(1.0)
+            str.session_state.page = 6
+            str.rerun()
+
+# --- NEW PAGE 6 ---
+elif str.session_state.page == 6:
+    apply_slow_cosmic_animation()
+    str.markdown("<h1>Krishna Prem: Param Satya ✨</h1>", unsafe_allow_html=True)
+    str.markdown(''' 
+        <div class="stylish-box"> 
+            <div class="image-watermark"></div> 
+            <div class="watermark">KRISHNA</div> 
+            <div class="box-content"> 
+                <h3 style="color: #ffffff; font-size: 28px; margin-bottom: 15px;">🌌 Bhagwan Krishna ka Prem Sandesh 🌌</h3> 
+                <p style="font-size: 20px; color: #fdfdfd; line-height: 1.8; font-style: italic;"> 
+                    "Prem ka arth hai 'Samarpan'. Krishna ke anusar, prem wahi hai jisme koi maang nahi hoti.<br><br>
+                    Jab hum dusro ki khushi mein apni khushi dhoondhte hain, wahi ishwar ka swaroop hai.<br>
+                    Prem bandhan nahi, balki aatma ki mukti hai. Jab tum khud ko bhool kar keval priya ke liye jeete ho, 
+                    tab tumhare bhitar 'Main' mit jata hai aur 'Krishna' ka prem jag uthta hai." 
+                </p> 
+            </div> 
+        </div> 
+    ''', unsafe_allow_html=True)
+    
+    if str.button("Go to Start 🔄", use_container_width=True):
+        with str.spinner("Resetting Space..."):
+            time.sleep(1.0)
+            str.session_state.page = 1
+            str.rerun()
