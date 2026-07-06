@@ -9,33 +9,15 @@ str.set_page_config(page_title="Our Cosmic Milky Way ❤️", page_icon="🌌", 
 if "page" not in str.session_state:
     str.session_state.page = 1
 
-# --- GLOBAL STYLING (WITH TOP-TO-BOTTOM TRANSITION & WATERMARK) ---
+# --- GLOBAL STYLING (PURE PYTHON STRINGS WITH DARK ROMANTIC THEME) ---
 CSS_BASE_STYLE = """
 <style>
-/* Smooth Top-to-Bottom Page Entry Animation */
-@keyframes fadeInDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .stApp {
     background: linear-gradient(135deg, #020105 0%, #050312 40%, #0b0518 80%, #11031c 100%);
     font-family: 'Georgia', serif;
     color: #ffffff;
     overflow-x: hidden;
 }
-
-/* Applying top-to-bottom animation directly to the main content container */
-.block-container {
-    animation: fadeInDown 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
 h1 {
     color: #ffffff;
     text-align: center;
@@ -44,11 +26,18 @@ h1 {
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 2px 2px 5px rgba(0, 0, 0, 0.9);
     margin-top: 40px;
 }
-
-/* Premium Black Romantic Glowing Box with Watermark Effect */
+.romantic-sub {
+    color: #e0e0e0;
+    font-size: 20px;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+/* Premium Black Romantic Glowing Box */
 .stylish-box {
     background: rgba(5, 3, 12, 0.95);
-    padding: 40px 35px;
+    padding: 35px;
     border-radius: 25px;
     border: 2px solid #ffffff;
     box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.25);
@@ -56,37 +45,17 @@ h1 {
     position: relative;
     z-index: 2;
     margin-bottom: 30px;
-    overflow: hidden;
 }
-
-/* Elegant Invisible Watermark Text Behind Content */
-.watermark {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-12deg);
-    font-size: 75px;
-    font-weight: 900;
-    color: rgba(255, 255, 255, 0.035);
-    white-space: nowrap;
-    pointer-events: none;
-    z-index: 1;
-    font-family: 'Impact', 'Arial Black', sans-serif;
-    letter-spacing: 8px;
-}
-
 /* Sub-boxes inside Page 5 for Vikars */
 .vikar-box {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 20px;
     border-radius: 15px;
     margin-bottom: 20px;
     text-align: left;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    position: relative;
 }
-
 /* Premium Round Buttons */
 div.stButton > button {
     background: linear-gradient(90deg, #ffffff 0%, #e0e0e0 100%) !important;
@@ -99,14 +68,12 @@ div.stButton > button {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.4) !important;
     transition: all 0.3s ease !important;
     display: block;
-    margin: 40px auto !important;
+    margin: 0 auto !important;
 }
-
 div.stButton > button:hover {
     transform: scale(1.05) !important;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.8) !important;
 }
-
 .milkyway-moon {
     position: fixed;
     top: 15%;
@@ -122,8 +89,7 @@ div.stButton > button:hover {
 str.markdown(CSS_BASE_STYLE, unsafe_allow_html=True)
 str.markdown('<div class="milkyway-moon">🌙</div>', unsafe_allow_html=True)
 
-
-# --- BACKGROUND COSMIC RAIN (Optimized to prevent window focusing glitch) ---
+# --- PURE PYTHON BACKGROUND ANIMATION INJECTOR ---
 def apply_slow_cosmic_animation():
     cosmic_symbols = ["💧", "❄️", "❤️", "💖", "💘"]
     animation_elements_list = []
@@ -131,24 +97,24 @@ def apply_slow_cosmic_animation():
     animation_elements_list.append("<style>")
     animation_elements_list.append("""
     body { margin: 0; overflow: hidden; background: transparent; }
-    .cosmic-item { position: fixed; top: -10%; z-index: 1; pointer-events: none; animation: rainLinear linear infinite; }
+    .cosmic-item { position: fixed; top: -10%; z-index: 9999; pointer-events: none; animation: rainLinear linear infinite; }
     @keyframes rainLinear {
         0% { top: -10%; transform: translateX(0); opacity: 0; }
-        10% { opacity: 0.6; }
-        90% { opacity: 0.6; }
+        10% { opacity: 0.8; }
+        90% { opacity: 0.8; }
         100% { top: 110%; transform: translateX(40px); opacity: 0; }
     }
     """)
     animation_elements_list.append("</style>")
     
-    for item_index in range(30):
+    for item_index in range(40):
         chosen_symbol = random.choice(cosmic_symbols)
         left_coordinate = random.randint(2, 98)
-        slow_speed_duration = random.uniform(12.0, 18.0)
+        slow_speed_duration = random.uniform(10.0, 16.0)
         staggered_delay = random.uniform(0.0, 6.0)
-        pixel_size = random.randint(14, 24)
+        pixel_size = random.randint(16, 26)
         
-        glow_color = "rgba(255, 75, 75, 0.4)" if chosen_symbol in ["❤️", "💖", "💘"] else "rgba(255, 255, 255, 0.3)"
+        glow_color = "rgba(255, 75, 75, 0.8)" if chosen_symbol in ["❤️", "💖", "💘"] else "rgba(255, 255, 255, 0.6)"
         
         element_string = (
             f'<div class="cosmic-item" style="left: {left_coordinate}%; '
@@ -168,83 +134,71 @@ if str.session_state.page == 1:
     apply_slow_cosmic_animation()
     str.markdown("<h1>For Someone Special... ✨❤️</h1>", unsafe_allow_html=True)
     
-    str.markdown('''
-        <div class="stylish-box">
-            <div class="watermark">COSMIC LOVE</div>
-            <p style="font-size: 22px; color: #f0f0f0; line-height: 1.6; font-style: italic; position: relative; z-index: 2;">
-                Ye choti si jagah maine sirf aapke liye banayi hai. Apne dil par haath rakhein aur neeche click karein... 👇
-            </p>
-        </div>
-    ''', unsafe_allow_html=True)
+    str.markdown('<div class="stylish-box">', unsafe_allow_html=True)
+    str.markdown('<p style="font-size: 22px; color: #f0f0f0; line-height: 1.6; font-style: italic;">Ye choti si jagah maine sirf aapke liye banayi hai. Apne dil par haath rakhein aur neeche click karein... 👇</p>', unsafe_allow_html=True)
+    str.markdown('</div>', unsafe_allow_html=True)
     
-    if str.button("Open My Heart 💖", use_container_width=True):
-        with str.spinner("Transitioning Through Space..."):
-            time.sleep(1.0)
-        str.session_state.page = 2
-        str.rerun()
+    str.image("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800", caption="🌌 Cosmic Birth of Stars", use_container_width=True)
+    
+    col1, col2, col3 = str.columns([1, 1.5, 1])
+    with col2:
+        if str.button("Open My Heart 💖", use_container_width=True):
+            str.session_state.page = 2
+            str.rerun()
 
 # --- PAGE 2 ---
 elif str.session_state.page == 2:
     apply_slow_cosmic_animation()
     str.markdown("<h1>Our Cosmic Universe ✨</h1>", unsafe_allow_html=True)
     
-    str.markdown('''
-        <div class="stylish-box">
-            <div class="watermark">FOREVER</div>
-            <h2 style="color: #ffffff; font-size: 38px; margin-bottom: 20px; position: relative; z-index: 2;">Dear Special Someone, 🌸</h2>
-            <p style="font-size: 20px; color: #fdfdfd; line-height: 1.8; font-style: italic; position: relative; z-index: 2;">
-                "Is anant aasmaan mein laakhon sitare hain,<br>par hamare is chote se brahmand mein,<br>sabsay haseen aur pyari chamak aapki muskurahat ki hai.<br><br>Aapka zindagi mein hona kisi tohfe se kam nahi,<br>aap har pal ko khubsurat aur sukoon se bhar dete ho."
-            </p>
-        </div>
-    ''', unsafe_allow_html=True)
+    str.markdown('<div class="stylish-box">', unsafe_allow_html=True)
+    str.markdown('<h2 style="color: #ffffff; font-size: 38px; margin-bottom: 20px;">Dear Special Someone, 🌸</h2>', unsafe_allow_html=True)
+    str.markdown('<p style="font-size: 20px; color: #fdfdfd; line-height: 1.8; font-style: italic;">"Is anant aasmaan mein laakhon sitare hain,<br>par hamare is chote se brahmand mein,<br>sabsay haseen aur pyari chamak aapki muskurahat ki hai.<br><br>Aapka zindagi mein hona kisi tohfe se kam nahi,<br>aap har pal ko khubsurat aur sukoon se bhar dete ho."</p>', unsafe_allow_html=True)
+    str.markdown('</div>', unsafe_allow_html=True)
     
-    if str.button("Next Page ❤️", use_container_width=True):
-        with str.spinner("Transitioning Through Space..."):
-            time.sleep(1.0)
-        str.session_state.page = 3
-        str.rerun()
+    str.image("https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800", caption="🪐 Beautiful Ringed Planet In Deep Space", use_container_width=True)
+    
+    col1, col2, col3 = str.columns([1, 1.5, 1])
+    with col2:
+        if str.button("Next Page ❤️", use_container_width=True):
+            str.session_state.page = 3
+            str.rerun()
 
 # --- PAGE 3 ---
 elif str.session_state.page == 3:
     apply_slow_cosmic_animation()
     str.markdown("<h1>The Eternal Love ✨🙏</h1>", unsafe_allow_html=True)
     
-    str.markdown('''
-        <div class="stylish-box">
-            <div class="watermark">RADHE RADHE</div>
-            <h3 style="color: #ff6b8b; font-size: 28px; margin-bottom: 15px; position: relative; z-index: 2;">✨ Radhe Radhe - Shaswat Prem ✨</h3>
-            <p style="font-size: 19px; color: #e8e8e8; line-height: 1.8; font-style: italic; position: relative; z-index: 2;">
-                "Prem ka matlab ek dusre ko paana nahi,<br>balki ek dusre mein poori tarah kho jaana hai.<br><br>Radha Krishna ka prem sikhata hai ki rishtey aatma se judte hain,<br>jahan dooriyan bhi dono ko alag nahi kar saktin.<br>Aapki zindagi bhi isi pavitra prem aur sukoon se hamesha mehakti rahe."
-            </p>
-        </div>
-    ''', unsafe_allow_html=True)
+    str.markdown('<div class="stylish-box">', unsafe_allow_html=True)
+    str.markdown('<h3 style="color: #ff6b8b; font-size: 28px; margin-bottom: 15px;">✨ Radhe Radhe - Shaswat Prem ✨</h3>', unsafe_allow_html=True)
+    str.markdown('<p style="font-size: 19px; color: #e8e8e8; line-height: 1.8; font-style: italic;">"Prem ka matlab ek dusre ko paana nahi,<br>balki ek dusre mein poori tarah kho jaana hai.<br><br>Radha Krishna ka prem sikhata hai ki rishtey aatma se judte hain,<br>jahan dooriyan bhi dono ko alag nahi kar saktin.<br>Aapki zindagi bhi isi pavitra prem aur sukoon se hamesha mehakti rahe."</p>', unsafe_allow_html=True)
+    str.markdown('</div>', unsafe_allow_html=True)
     
-    if str.button("Eternal Prem ✨", use_container_width=True):
-        with str.spinner("Transitioning Through Space..."):
-            time.sleep(1.0)
-        str.session_state.page = 4
-        str.rerun()
+    str.image("https://images.unsplash.com/photo-1539321908154-04927596764d?w=800", caption="🌌 Infinite Swirling Milky Way Galaxy", use_container_width=True)
+    
+    col1, col2, col3 = str.columns([1, 1.5, 1])
+    with col2:
+        if str.button("Eternal Prem ✨", use_container_width=True):
+            str.session_state.page = 4
+            str.rerun()
 
 # --- PAGE 4 ---
 elif str.session_state.page == 4:
     apply_slow_cosmic_animation()
     str.markdown("<h1>The Ultimate Destination ❤️</h1>", unsafe_allow_html=True)
     
-    str.markdown('''
-        <div class="stylish-box">
-            <div class="watermark">ETERNAL</div>
-            <h3 style="color: #ffffff; font-size: 28px; margin-bottom: 15px; position: relative; z-index: 2;">🌌 Sacha Prem Hi Brahmand Hai 🌌</h3>
-            <p style="font-size: 19px; color: #e8e8e8; line-height: 1.8; font-style: italic; position: relative; z-index: 2;">
-                "Prem wo nahi jo kuch samay ke liye ho,<br>prem toh wo hai jo sadiyon tak rooh mein bas jaye.<br><br>Aapki is yatra ka aakhri padaav yahi sikhata hai ki<br>duniya ki sabsay khoobsoorat cheez ko na dekha ja sakta hai, <br>na chhua ja sakta hai... use sirf dil se mehsoos kiya jata hai."
-            </p>
-        </div>
-    ''', unsafe_allow_html=True)
+    str.markdown('<div class="stylish-box">', unsafe_allow_html=True)
+    str.markdown('<h3 style="color: #ffffff; font-size: 28px; margin-bottom: 15px;">🌌 Sacha Prem Hi Brahmand Hai 🌌</h3>', unsafe_allow_html=True)
+    str.markdown('<p style="font-size: 19px; color: #e8e8e8; line-height: 1.8; font-style: italic;">"Prem wo nahi jo kuch samay ke liye ho,<br>prem toh wo hai jo sadiyon tak rooh mein bas jaye.<br><br>Aapki is yatra ka aakhri padaav yahi sikhata hai ki<br>duniya ki sabsay khoobsoorat cheez ko na dekha ja sakta hai, <br>na chhua ja sakta hai... use sirf dil se mehsoos kiya jata hai."</p>', unsafe_allow_html=True)
+    str.markdown('</div>', unsafe_allow_html=True)
     
-    if str.button("Agar duniya se alag hona chahty ho prem ke mamle main to click a eternal o god ✨", use_container_width=True):
-        with str.spinner("Transitioning Through Space..."):
-            time.sleep(1.0)
-        str.session_state.page = 5
-        str.rerun()
+    str.image("https://images.unsplash.com/photo-1漫-1506318137071-a8e063b4bec0?w=800", caption="🌍 Peaceful Blue Planet and Nebula Dust", use_container_width=True)
+    
+    col1, col2, col3 = str.columns([0.1, 2.8, 0.1])
+    with col2:
+        if str.button("Agar duniya se alag hona chahty ho prem ke mamle main to click a eternal o god ✨", use_container_width=True):
+            str.session_state.page = 5
+            str.rerun()
 
 # --- PAGE 5 ---
 elif str.session_state.page == 5:
@@ -252,9 +206,8 @@ elif str.session_state.page == 5:
     str.markdown("<h1>Vikaro Se Mukti: Sacha Prem 🌌</h1>", unsafe_allow_html=True)
     
     str.markdown('<div class="stylish-box">', unsafe_allow_html=True)
-    str.markdown('<div class="watermark" style="font-size:55px;">MUKTI</div>', unsafe_allow_html=True)
-    str.markdown('<h3 style="color: #ff6b8b; font-size: 30px; margin-bottom: 25px; position: relative; z-index: 2;">✨ Prem Se Vikaro Ka Naash ✨</h3>', unsafe_allow_html=True)
-    str.markdown('<p style="font-size: 18px; color: #e0e0e0; font-style: italic; margin-bottom: 30px; position: relative; z-index: 2;">"Jab jivan mein sachay aur pavitra prem ka agaman hota hai, toh mann ke saare vikar (vices) khud-ba-khud vileen ho jaate hain..."</p>', unsafe_allow_html=True)
+    str.markdown('<h3 style="color: #ff6b8b; font-size: 30px; margin-bottom: 25px;">✨ Prem Se Vikaro Ka Naash ✨</h3>', unsafe_allow_html=True)
+    str.markdown('<p style="font-size: 18px; color: #e0e0e0; font-style: italic; margin-bottom: 30px;">"Jab jivan mein sachay aur pavitra prem ka agaman hota hai, toh mann ke saare vikar (vices) khud-ba-khud vileen ho jaate hain..."</p>', unsafe_allow_html=True)
     
     # 1. DAR / FEAR Block
     str.markdown('<div class="vikar-box">', unsafe_allow_html=True)
@@ -286,11 +239,13 @@ elif str.session_state.page == 5:
     str.markdown('<p style="color: #dfdfdf; font-size: 16px; margin: 0; line-height: 1.5;">Ahankar kehta hai \'Main sabsay upar hoon\', lekin prem kehta hai \'Main toh kuch bhi nahi\'. Prem mein \'Main\' (Ego) mit jata hai aur sirf \'Hum\' baaki reh jata hai. Sacha prem ahankar ko poori tarah shunya kar deta hai.</p>', unsafe_allow_html=True)
     str.markdown('</div>', unsafe_allow_html=True)
     
-    str.markdown('<p style="font-size: 16px; color: #ff6b8b; font-weight: bold; text-align: center; margin-top: 25px; position: relative; z-index: 2;">✨ Jo Prem Ko Chunndta Hai, Wo Saare Vikaro Se Mukt Ho Jata Hai ✨</p>', unsafe_allow_html=True)
+    str.markdown('<p style="font-size: 16px; color: #ff6b8b; font-weight: bold; text-align: center; margin-top: 25px;">✨ Jo Prem Ko Chunndta Hai, Wo Saare Vikaro Se Mukt Ho Jata Hai ✨</p>', unsafe_allow_html=True)
     str.markdown('</div>', unsafe_allow_html=True)
     
-    if str.button("Go to Start 🔄", use_container_width=True):
-        with str.spinner("Resetting Space..."):
-            time.sleep(1.0)
-        str.session_state.page = 1
-        str.rerun()
+    str.image("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800", caption="🌌 Cosmic Liberation and Divine Peace", use_container_width=True)
+    
+    col1, col2, col3 = str.columns([1, 1.5, 1])
+    with col2:
+        if str.button("Go to Start 🔄", use_container_width=True):
+            str.session_state.page = 1
+            str.rerun()
