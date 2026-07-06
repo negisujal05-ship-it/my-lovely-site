@@ -225,7 +225,6 @@ elif str.session_state.page == 3:
     
     str.image("https://images.unsplash.com/photo-1601931649911-37911b33346d?w=600", caption="🙏 Radhe Krishna Ki Kripa Aap Par Bani Rahe 🙏", use_container_width=True)
     
-    # NEW NAVIGATION TO FOURTH PAGE
     str.write("")
     str.markdown("<p style='text-align: center; font-size: 18px; color: #ff6b8b; font-weight: bold;'>Agar prem ko jaana ho to... 👇</p>", unsafe_allow_html=True)
     
@@ -236,7 +235,7 @@ elif str.session_state.page == 3:
             str.rerun()
 
 
-# --- PAGE 4: FOURTH INTERFACE (New Surprise Page) ---
+# --- PAGE 4: FOURTH INTERFACE (Image Updated to Radha Krishna) ---
 elif str.session_state.page == 4:
     start_falling_effects()
     str.markdown("<h1>The Ultimate Destination ❤️</h1>", unsafe_allow_html=True)
@@ -254,8 +253,8 @@ elif str.session_state.page == 4:
     </div>
     """, unsafe_allow_html=True)
     
-    # Beautiful Romantic Silhouette Image for Fourth Page
-    str.image("https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600", caption="✨ Infinite Hearts, Infinite Time ✨", use_container_width=True)
+    # Updated to a beautiful divine silhouette style Radha Krishna Image
+    str.image("https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=600", caption="🙏 Radhe Krishna - Prem Hi Poornata Hai 🙏", use_container_width=True)
     
     str.write("")
     col1, col2, col3 = str.columns([1, 1.5, 1])
