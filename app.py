@@ -395,3 +395,36 @@ elif str.session_state.page == 7:
     #     str.session_state.page = 1
     #     str.rerun()
 
+# Updated button for Page 8
+    if str.button("Final Page for You ✨", use_container_width=True):
+        str.session_state.page = 8
+        str.rerun()
+
+# --- PAGE 8 (Final Page) ---
+elif str.session_state.page == 8:
+    apply_slow_cosmic_animation()
+    str.markdown("<h1>A Heartfelt Thank You ❤️</h1>", unsafe_allow_html=True)
+    
+    str.markdown('''
+        <div class="stylish-box" style="border: 2px solid #ff6b8b;">
+            <div class="image-watermark"></div>
+            <div class="watermark" style="font-size:50px; color: rgba(255,107,139,0.05);">THANKS</div>
+            <div class="box-content">
+                <h3 style="color: #ff6b8b; font-size: 32px; margin-bottom: 20px;">🌹 Ek Pyari Si Shayari 🌹</h3>
+                <p style="font-size: 20px; color: #ffffff; line-height: 1.8; font-style: italic; margin-bottom: 30px;">
+                    "Na jaane kab aapki aadat si ho gayi,<br>
+                    Aapki har baat mein barkat si ho gayi.<br>
+                    Is chote se safar mein, aapke hone se,<br>
+                    Meri zindagi ab ek khoobsurat ibaadat si ho gayi."
+                </p>
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2);">
+                <h4 style="color: #ffffff; font-size: 22px; margin-top: 20px;">✨ Special Thanks to Visit My Site ✨</h4>
+                <p style="font-size: 16px; color: #cccccc;">Aapka yahan aana mere liye kisi vardaan se kam nahi.</p>
+            </div>
+        </div>
+    ''', unsafe_allow_html=True)
+    
+    if str.button("Back to Start 🔄", use_container_width=True):
+        str.session_state.page = 1
+        str.rerun()
+
