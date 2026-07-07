@@ -289,6 +289,24 @@ SOLAR_SYSTEM = """
 """
 
 str.markdown(SOLAR_SYSTEM, unsafe_allow_html=True)
+# ===== STARS GENERATOR =====
+
+stars = ""
+
+for i in range(150):
+    stars += f"""
+    <div style="
+    position:fixed;
+    left:{random.randint(0,100)}%;
+    top:{random.randint(0,100)}%;
+    color:white;
+    font-size:{random.randint(6,16)}px;
+    opacity:{random.uniform(0.3,1)};
+    z-index:0;
+    ">
+    ✦
+    </div>
+    """
 str.markdown('<div class="milkyway-moon">🌙</div>', unsafe_allow_html=True)
 
 
