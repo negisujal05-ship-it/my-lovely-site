@@ -352,12 +352,48 @@ elif str.session_state.page == 6:
             <p style="font-size: 20px; line-height: 1.8; font-style: italic;"> 
                 "Prem ka arth hai 'Samarpan'. Krishna ke anusar, prem wahi hai jisme koi maang nahi hoti.<br><br>
                 Jab hum dusro ki khushi mein apni khushi dhoondhte hain, wahi ishwar ka swaroop hai.<br>
-                Prem bandhan nahi, balki aatma ki mukti hai. Jab tum khud ko bhool kar keval priya ke liye jeete ho, 
+                Prem bandhan nahi, balki aatma ki mukti hai. Jab tum khud ko bhool kar keval prem ke liye jeete ho, 
                 tab tumhare bhitar 'Main' mit jata hai aur 'Krishna' ka prem jag uthta hai." 
             </p> 
         </div> 
     ''', unsafe_allow_html=True)
     
-    if str.button("Go to Start 🔄"):
+    # if str.button("Go to Start 🔄"):
+    #     str.session_state.page = 1
+    #     str.rerun()
+# English Button for Page 7
+    if str.button("Definition of Pure Love ✨", use_container_width=True):
+        str.session_state.page = 7
+        str.rerun()
+
+# --- PAGE 7 ---
+elif str.session_state.page == 7:
+    apply_slow_cosmic_animation()
+    str.markdown("<h1>Sudh Prem Ki Pribhasha 🌌</h1>", unsafe_allow_html=True)
+    
+    str.markdown('''
+        <div class="stylish-box">
+            <div class="image-watermark"></div>
+            <div class="watermark" style="font-size:50px;">PURE</div>
+            <div class="box-content">
+                <h3 style="color: #ff6b8b; font-size: 28px; margin-bottom: 20px;">✨ Nishwarth Prem ✨</h3>
+                <p style="font-size: 20px; color: #ffffff; line-height: 1.8; font-weight: bold; font-style: italic;">
+                    "Prem wo hai jo nishwarth bhaw se aatma se ho, na ki sharir se. 
+                    Yeh koi vyakti nahi, ek sthiti hai. Jab aap apni khushi ko doosre ki muskurahat 
+                    mein dhundne lagte hain, wahi prem hai.<br><br>
+                    Sacha prem wahi hai jahan koi shart (condition) na ho, koi maang na ho, 
+                    bas ek dusre ki aatma ka samman ho."
+                </p>
+                <p style="font-size: 18px; color: #e8e8e8; margin-top: 20px;">
+                    Sacha prem wahi hai jahan koi shart na ho, koi maang na ho, bas ek dusre ki aatma ka samman ho.
+                </p>
+            </div>
+        </div>
+    ''', unsafe_allow_html=True)
+    
+    if str.button("Enter the Love World 🚀", use_container_width=True):
+        with str.spinner("Returning to Cosmic Start..."):
+            time.sleep(1.0)
         str.session_state.page = 1
         str.rerun()
+
