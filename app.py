@@ -333,11 +333,11 @@ elif str.session_state.page == 5:
     str.markdown('<p style="font-size: 16px; color: #ff6b8b; font-weight: bold; text-align: center; margin-top: 25px;">✨ Jo Prem Ko Chunndta Hai, Wo Saare Vikaro Se Mukt Ho Jata Hai ✨</p>', unsafe_allow_html=True)
     str.markdown('</div></div>', unsafe_allow_html=True)
     
-    if str.button("Go to Start 🔄", use_container_width=True):
-        with str.spinner("Resetting Space..."):
-            time.sleep(1.0)
-        str.session_state.page = 1
-        str.rerun()
+    # if str.button("Go to Start 🔄", use_container_width=True):
+    #     with str.spinner("Resetting Space..."):
+    #         time.sleep(1.0)
+    #     str.session_state.page = 1
+    #     str.rerun()
        # Button to go to Page 6
     if str.button("Enter to Love World 💖"):
         str.session_state.page = 6
