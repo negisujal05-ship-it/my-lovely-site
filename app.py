@@ -1,78 +1,89 @@
 import streamlit as str
-import time
 import random
 
 # Page Setup
-str.set_page_config(page_title="A true Love ❤️", page_icon="🌌", layout="centered")
+str.set_page_config(page_title="Cosmic Love ❤️", page_icon="🌌", layout="centered")
 
 if "page" not in str.session_state:
     str.session_state.page = 1
 
-# --- CSS ---
+# --- LIGHTWEIGHT GALAXY THEME ---
 CSS_BASE_STYLE = """
 <style>
-.stApp { background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%); color: #ffffff; }
-.stylish-box { background: rgba(5, 3, 12, 0.96); padding: 40px; border-radius: 25px; border: 2px solid #ffffff; text-align: center; }
-div.stButton > button { background: #ffffff !important; color: #000 !important; font-weight: bold !important; border-radius: 50px !important; }
+/* Real Galaxy Background */
+.stApp {
+    background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+    color: #ffffff;
+    font-family: 'Georgia', serif;
+}
+
+/* Elegant Content Box */
+.stylish-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+/* Minimalist Button */
+div.stButton > button {
+    background: transparent !important;
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    border-radius: 50px !important;
+    padding: 10px 25px !important;
+    transition: 0.3s !important;
+}
+div.stButton > button:hover {
+    background: #ffffff !important;
+    color: #000 !important;
+}
+
+/* Lightweight Galaxy Particles */
+.particle {
+    position: fixed;
+    top: -5%;
+    pointer-events: none;
+    z-index: 0;
+    animation: fall linear infinite;
+    opacity: 0.6;
+}
+@keyframes fall {
+    to { transform: translateY(105vh) rotate(360deg); }
+}
 </style>
 """
 str.markdown(CSS_BASE_STYLE, unsafe_allow_html=True)
 
-# --- ANIMATION ---
-def apply_slow_cosmic_animation():
-    elements = ["✨", "❄️", "❤️", "⭐", "💫"]
-    style = "<style>.cosmic { position: fixed; top: -10%; animation: rain 15s linear infinite; pointer-events: none; }</style>"
-    html = style + "".join([f'<div class="cosmic" style="left: {random.randint(0,100)}%; animation-delay: {random.uniform(0,10)}s; font-size: {random.randint(10,20)}px;">{random.choice(elements)}</div>' for _ in range(20)])
-    str.components.v1.html(html, height=0)
+# --- LIGHTWEIGHT ANIMATION ENGINE ---
+def apply_galaxy_animation():
+    # Sirf 15 particles taaki site heavy na ho
+    elements = ["✨", "❄️", "❤️", "⭐"]
+    particles = ""
+    for _ in range(15):
+        left = random.randint(0, 100)
+        delay = random.uniform(0, 15)
+        duration = random.uniform(10, 20)
+        size = random.randint(10, 18)
+        char = random.choice(elements)
+        particles += f'<div class="particle" style="left:{left}%; animation-delay:{delay}s; animation-duration:{duration}s; font-size:{size}px;">{char}</div>'
+    str.components.v1.html(particles, height=0)
 
-# --- PAGES ---
+# --- PAGE LOGIC ---
+apply_galaxy_animation()
+
 if str.session_state.page == 1:
-    apply_slow_cosmic_animation()
-    str.markdown("<h1>For Someone Special ✨</h1>", unsafe_allow_html=True)
-    if str.button("Open My Heart 💖"):
+    str.markdown("<h1>Cosmic Journey ✨</h1>", unsafe_allow_html=True)
+    if str.button("Begin the Voyage"):
         str.session_state.page = 2
         str.rerun()
 
 elif str.session_state.page == 2:
-    apply_slow_cosmic_animation()
-    str.markdown("<h1>Our Cosmic Universe 🌌</h1>", unsafe_allow_html=True)
-    if str.button("Next Page"):
+    str.markdown('<div class="stylish-box"><h2>Aapka Swagat Hai</h2><p>Ye safar sirf aapke liye hai.</p></div>', unsafe_allow_html=True)
+    if str.button("Next"):
         str.session_state.page = 3
         str.rerun()
 
-elif str.session_state.page == 3:
-    apply_slow_cosmic_animation()
-    str.markdown("<h1>Eternal Love ✨</h1>", unsafe_allow_html=True)
-    if str.button("Next Page"):
-        str.session_state.page = 4
-        str.rerun()
-
-elif str.session_state.page == 4:
-    apply_slow_cosmic_animation()
-    str.markdown("<h1>The Ultimate Destination ❤️</h1>", unsafe_allow_html=True)
-    if str.button("Enter to Eternal Life"):
-        str.session_state.page = 5
-        str.rerun()
-
-elif str.session_state.page == 5:
-    apply_slow_cosmic_animation()
-    str.markdown("<h1>Vikaro Se Mukti ✨</h1>", unsafe_allow_html=True)
-    if str.button("Definition of Pure Love"):
-        str.session_state.page = 6
-        str.rerun()
-
-elif str.session_state.page == 6:
-    apply_slow_cosmic_animation()
-    str.markdown("<h1>Pure Love Definition 🌌</h1>", unsafe_allow_html=True)
-    str.markdown('<div class="stylish-box">Prem wo hai jo nishwarth bhaw se aatma se ho, na ki sharir se.</div>', unsafe_allow_html=True)
-    if str.button("Final Page"):
-        str.session_state.page = 7
-        str.rerun()
-
-elif str.session_state.page == 7:
-    apply_slow_cosmic_animation()
-    str.markdown("<h1>Thank You ❤️</h1>", unsafe_allow_html=True)
-    str.markdown('<div class="stylish-box">Special thanks for visiting my site!</div>', unsafe_allow_html=True)
-    if str.button("Back to Start"):
-        str.session_state.page = 1
-        str.rerun()
+# (Aap yahan apne baaki pages isi format mein add kar sakte hain)
