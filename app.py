@@ -260,6 +260,35 @@ SOLAR_GALAXY = """
 """
 
 str.markdown(SOLAR_GALAXY, unsafe_allow_html=True)
+SOLAR_SYSTEM = """
+<div class="solar-system">
+
+<div class="sun"></div>
+
+<div class="orbit mercury">
+<div class="planet mercury-p"></div>
+</div>
+
+<div class="orbit venus">
+<div class="planet venus-p"></div>
+</div>
+
+<div class="orbit earth">
+<div class="planet earth-p"></div>
+</div>
+
+<div class="orbit mars">
+<div class="planet mars-p"></div>
+</div>
+
+<div class="orbit jupiter">
+<div class="planet jupiter-p"></div>
+</div>
+
+</div>
+"""
+
+str.markdown(SOLAR_SYSTEM, unsafe_allow_html=True)
 str.markdown('<div class="milkyway-moon">🌙</div>', unsafe_allow_html=True)
 
 
