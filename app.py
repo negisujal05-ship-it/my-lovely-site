@@ -380,9 +380,7 @@ elif str.session_state.page == 7:
                 <p style="font-size: 20px; color: #ffffff; line-height: 1.8; font-weight: bold; font-style: italic;">
                     "Prem wo hai jo nishwarth bhaw se aatma se ho, na ki sharir se. 
                     Yeh koi vyakti nahi, ek sthiti hai. Jab aap apni khushi ko doosre ki muskurahat 
-                    mein dhundne lagte hain, wahi prem hai.<br><br>
-                    Sacha prem wahi hai jahan koi shart (condition) na ho, koi maang na ho, 
-                    bas ek dusre ki aatma ka samman ho."
+                    mein dhundne lagte hain, wahi prem hai.<br><br>"
                 </p>
                 <p style="font-size: 18px; color: #e8e8e8; margin-top: 20px;">
                     Sacha prem wahi hai jahan koi shart na ho, koi maang na ho, bas ek dusre ki aatma ka samman ho.
