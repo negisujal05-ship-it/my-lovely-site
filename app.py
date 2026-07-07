@@ -280,7 +280,7 @@ elif str.session_state.page == 4:
         </div>
     ''', unsafe_allow_html=True)
     
-    if str.button("Agar duniya se alag hona chahty ho prem ke mamle main to click a eternal o god ✨", use_container_width=True):
+    if str.button("Step away from the world: Enter the eternal life of God ✨", use_container_width=True):
         with str.spinner("Transitioning Through Space..."):
             time.sleep(1.0)
         str.session_state.page = 5
@@ -389,9 +389,9 @@ elif str.session_state.page == 7:
         </div>
     ''', unsafe_allow_html=True)
     
-    if str.button("Enter the Love World 🚀", use_container_width=True):
-        with str.spinner("Returning to Cosmic Start..."):
-            time.sleep(1.0)
-        str.session_state.page = 1
-        str.rerun()
+    # if str.button("Enter the Love World 🚀", use_container_width=True):
+    #     with str.spinner("Returning to Cosmic Start..."):
+    #         time.sleep(1.0)
+    #     str.session_state.page = 1
+    #     str.rerun()
 
