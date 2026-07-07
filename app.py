@@ -3,7 +3,7 @@ import time
 import random
 
 # Page Setup
-str.set_page_config(page_title="Our Cosmic Milky Way ❤️", page_icon="🌌", layout="centered")
+str.set_page_config(page_title="A true Love ❤️", page_icon="🌌", layout="centered")
 
 # Page tracking system
 if "page" not in str.session_state:
