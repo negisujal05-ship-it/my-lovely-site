@@ -29,7 +29,11 @@ html {
 }
 
 .stApp {
-    background: linear-gradient(135deg, #020105 0%, #050312 40%, #0b0518 80%, #11031c 100%);
+    background:
+radial-gradient(circle at center,#ffb347 0%,#ff8c00 5%,transparent 10%),
+radial-gradient(circle at 20% 30%,rgba(0,191,255,0.15),transparent 30%),
+radial-gradient(circle at 80% 70%,rgba(138,43,226,0.15),transparent 30%),
+linear-gradient(180deg,#000814,#001d3d,#000000);
     font-family: 'Georgia', serif;
     color: #ffffff;
     overflow-x: hidden;
