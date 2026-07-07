@@ -11,6 +11,123 @@ if "page" not in str.session_state:
 
 # --- GLOBAL STYLING (WITH IMAGE + TEXT WATERMARK & ADVANCED TRANSITION) ---
 CSS_BASE_STYLE = """
+# ==========================
+# SOLAR GALAXY ANIMATION
+# ==========================
+
+SOLAR_GALAXY = """
+<style>
+
+.solar-system{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:500px;
+    height:500px;
+    pointer-events:none;
+    z-index:0;
+}
+
+.sun{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:50px;
+    height:50px;
+    background:#ffd700;
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 40px #ffd700;
+}
+
+.orbit{
+    position:absolute;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.orbit1{
+    width:120px;
+    height:120px;
+    animation:rotateOrbit 12s linear infinite;
+}
+
+.orbit2{
+    width:180px;
+    height:180px;
+    animation:rotateOrbit 18s linear infinite;
+}
+
+.orbit3{
+    width:250px;
+    height:250px;
+    animation:rotateOrbit 25s linear infinite;
+}
+
+.planet{
+    position:absolute;
+    top:-8px;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:50%;
+}
+
+.p1{
+    width:12px;
+    height:12px;
+    background:#00d4ff;
+    box-shadow:0 0 15px #00d4ff;
+}
+
+.p2{
+    width:16px;
+    height:16px;
+    background:#ff6b6b;
+    box-shadow:0 0 15px #ff6b6b;
+}
+
+.p3{
+    width:20px;
+    height:20px;
+    background:#8a2be2;
+    box-shadow:0 0 20px #8a2be2;
+}
+
+@keyframes rotateOrbit{
+    from{
+        transform:translate(-50%,-50%) rotate(0deg);
+    }
+    to{
+        transform:translate(-50%,-50%) rotate(360deg);
+    }
+}
+
+</style>
+
+<div class="solar-system">
+
+    <div class="sun"></div>
+
+    <div class="orbit orbit1">
+        <div class="planet p1"></div>
+    </div>
+
+    <div class="orbit orbit2">
+        <div class="planet p2"></div>
+    </div>
+
+    <div class="orbit orbit3">
+        <div class="planet p3"></div>
+    </div>
+
+</div>
+"""
+
+st.markdown(SOLAR_GALAXY, unsafe_allow_html=True)
 <style>
 /* Smooth Top-to-Bottom Premium Transition */
 @keyframes fadeInDown {
