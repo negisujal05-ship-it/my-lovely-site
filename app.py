@@ -10,6 +10,32 @@ if "page" not in str.session_state:
 
 # --- CSS STYLING ---
 CSS_BASE_STYLE = """
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+html, body, [class*="css"]{
+    font-family:'Cinzel', serif;
+}
+
+h1{
+    color:#ffffff !important;
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.8),
+        0 0 20px rgba(255,255,255,0.6);
+    font-weight:700;
+}
+
+/* Background aur Animation Layering */
+.stApp {
+    background:
+radial-gradient(circle at 20% 20%, rgba(0,191,255,0.2), transparent 30%),
+radial-gradient(circle at 80% 70%, rgba(138,43,226,0.2), transparent 30%),
+linear-gradient(180deg,#000814,#001d3d,#000000) !important;
+    overflow: hidden;
+}
+
+/* Snow Effect */
+
 .snowflake{
     position:fixed;
     top:-20px;
@@ -31,21 +57,6 @@ CSS_BASE_STYLE = """
         transform:translateY(110vh);
         opacity:0;
     }
-}
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
-
-html, body, [class*="css"]{
-    font-family:'Cinzel', serif;
-}
-/* Background aur Animation Layering */
-.stApp {
-    background:
-radial-gradient(circle at 20% 20%, rgba(0,191,255,0.2), transparent 30%),
-radial-gradient(circle at 80% 70%, rgba(138,43,226,0.2), transparent 30%),
-linear-gradient(180deg,#000814,#001d3d,#000000) !important;
-    overflow: hidden;
 }
 
 /* Solar System Container */
@@ -176,15 +187,18 @@ html, body, [class*="css"]{
 }
 
 h1,h2,h3,h4{
-    color:white;
-    text-shadow:0 0 15px rgba(255,255,255,0.8);
+     color:#ffffff !important;
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.8),
+        0 0 20px rgba(255,255,255,0.6);
+    font-weight:700;
 }
 </style>
 """
 str.markdown(CSS_BASE_STYLE, unsafe_allow_html=True)
 snow = ""
 
-for i in range(20):    
+for i in range(15):    
     snow += f"""
     <div style="
     position:fixed;
@@ -221,7 +235,7 @@ def apply_slow_cosmic_animation():
 
     stars = ""
 
-    for i in range(50):
+    for i in range(40):
         stars += f"""
         <div style="
         position:fixed;
@@ -239,7 +253,11 @@ def apply_slow_cosmic_animation():
     str.markdown(stars, unsafe_allow_html=True)
 
 if str.session_state.page == 1:
-    str.markdown("<h1>For Someone Special... ✨❤️</h1>", unsafe_allow_html=True)
+    str.markdown("""
+    <h1 style='color:white;text-align:center;'>
+    For Someone Special... ✨❤️
+    </h1>
+""", unsafe_allow_html=True)
     str.markdown('<div class="stylish-box">Ye choti si jagah maine sirf aapke liye banayi hai.</div>', unsafe_allow_html=True)
     if str.button("Open My Heart 💖"):
         str.session_state.page = 2
@@ -454,9 +472,4 @@ elif str.session_state.page == 8:
             </div>
         </div>
     ''', unsafe_allow_html=True)
-    
-    if str.button("Back to Start 🔄", use_container_width=True):
-        str.session_state.page = 1
-        str.rerun()
-
     
