@@ -11,9 +11,17 @@ if "page" not in str.session_state:
 # --- CSS STYLING ---
 CSS_BASE_STYLE = """
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+html, body, [class*="css"]{
+    font-family:'Cinzel', serif;
+}
 /* Background aur Animation Layering */
 .stApp {
-    background: linear-gradient(180deg, #000814 0%, #001d3d 100%) !important;
+    background:
+radial-gradient(circle at 20% 20%, rgba(0,191,255,0.2), transparent 30%),
+radial-gradient(circle at 80% 70%, rgba(138,43,226,0.2), transparent 30%),
+linear-gradient(180deg,#000814,#001d3d,#000000) !important;
     overflow: hidden;
 }
 
@@ -62,9 +70,53 @@ CSS_BASE_STYLE = """
     backdrop-filter: blur(10px);
 }
 .vikar-box { margin-bottom: 15px; padding: 10px; border-left: 3px solid #ff6b8b; background: rgba(255,255,255,0.05); }
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+html, body, [class*="css"]{
+    font-family:'Cinzel', serif;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-50px);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+
+h1,h2,h3,h4{
+    color:white;
+    text-shadow:0 0 15px rgba(255,255,255,0.8);
+}
 </style>
 """
 str.markdown(CSS_BASE_STYLE, unsafe_allow_html=True)
+snow = ""
+
+for i in range(60):
+    snow += f"""
+    <div style="
+    position:fixed;
+    left:{random.randint(0,100)}%;
+    top:-20px;
+    color:white;
+    font-size:{random.randint(10,18)}px;
+    animation: fall {random.randint(10,25)}s linear infinite;
+    z-index:-1;
+    ">
+    ❄
+    </div>
+    """
+
+str.markdown(snow, unsafe_allow_html=True)
 
 # --- SOLAR SYSTEM HTML ---
 str.markdown("""
@@ -79,7 +131,25 @@ str.markdown("""
 
 # --- PAGE LOGIC ---
 def apply_slow_cosmic_animation():
-    pass
+
+    stars = ""
+
+    for i in range(120):
+        stars += f"""
+        <div style="
+        position:fixed;
+        left:{random.randint(0,100)}%;
+        top:{random.randint(0,100)}%;
+        color:white;
+        font-size:{random.randint(6,16)}px;
+        opacity:{random.uniform(0.3,1)};
+        z-index:-1;
+        ">
+        ✦
+        </div>
+        """
+
+    str.markdown(stars, unsafe_allow_html=True)
 
 if str.session_state.page == 1:
     str.markdown("<h1>For Someone Special... ✨❤️</h1>", unsafe_allow_html=True)
@@ -298,9 +368,6 @@ elif str.session_state.page == 8:
         </div>
     ''', unsafe_allow_html=True)
     
-if str.button("Back to Start 🔄", use_container_width=True):
-        str.session_state.page = 1
-        str.rerun()
 
 # CSS ko block ke BILKUL bahar rakhein (left mein koi space nahi)
 str.markdown("""
