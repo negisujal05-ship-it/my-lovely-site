@@ -116,20 +116,7 @@ for i in range(150):
     """
 str.markdown(stars_html, unsafe_allow_html=True)
 
-# --- APP LOGIC ---
-if str.session_state.page == 1:
-    str.markdown("<h1>For Someone Special... ✨</h1>", unsafe_allow_html=True)
-    str.markdown('<div class="stylish-box">Welcome to your Cosmic Journey... The Sun is glowing Red for debug mode!</div>', unsafe_allow_html=True)
-    if str.button("Next Page"):
-        str.session_state.page = 2
-        str.rerun()
 
-elif str.session_state.page == 2:
-    str.markdown("<h1>Our Cosmic Universe ✨</h1>", unsafe_allow_html=True)
-    str.markdown('<div class="stylish-box">Background is fixed with Z-Index layering.</div>', unsafe_allow_html=True)
-    if str.button("Back"):
-        str.session_state.page = 1
-        str.rerun()
         # --- PAGE LOGIC ---
 
 # PAGE 1
