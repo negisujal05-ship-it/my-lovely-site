@@ -306,7 +306,7 @@ elif str.session_state.page == 8:
     left:50%;
     transform:translate(-50%,-50%);
     {"width": "700px"}
-    height:700px;
+     {"height": "700px"}
 
     z-index:-1;   /* Important */
     pointer-events:none;
