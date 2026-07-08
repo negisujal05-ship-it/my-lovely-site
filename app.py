@@ -305,7 +305,7 @@ elif str.session_state.page == 8:
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    width:700px;
+    {"width": "700px"}
     height:700px;
 
     z-index:-1;   /* Important */
