@@ -298,16 +298,22 @@ elif str.session_state.page == 8:
         </div>
     ''', unsafe_allow_html=True)
     
-    if str.button("Back to Start 🔄", use_container_width=True):
+  if str.button("Back to Start 🔄", use_container_width=True):
         str.session_state.page = 1
-        str.rerun() is code main .solar-system{
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    {"width": "700px"}
-     {"height": "700px"}
+        str.rerun()
 
-    z-index:-1;   /* Important */
-    pointer-events:none;
-} 
+# CSS ko aise 'st.markdown' ke andar wrap karein
+str.markdown("""
+<style>
+    .solar-system {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 700px;
+        height: 700px;
+        z-index: -1;
+        pointer-events: none;
+    }
+</style>
+""", unsafe_allow_html=True)
