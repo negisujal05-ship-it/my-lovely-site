@@ -156,12 +156,14 @@ linear-gradient(180deg,#000814,#001d3d,#000000) !important;
 
 /* UI Box */
 .block-container { z-index: 10 !important; }
-.stylish-box { 
-    background: rgba(5, 3, 12, 0.7); 
-    padding: 30px; 
-    border-radius: 20px; 
-    border: 1px solid rgba(255,255,255,0.2);
-    backdrop-filter: blur(10px);
+.stylish-box{
+    background: rgba(0,0,0,0.55);
+    padding: 30px;
+    border-radius: 25px;
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    color: white !important;
+    box-shadow: 0 0 25px rgba(0,191,255,0.15);
 }
 .vikar-box { margin-bottom: 15px; padding: 10px; border-left: 3px solid #ff6b8b; background: rgba(255,255,255,0.05); }
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
@@ -258,7 +260,13 @@ if str.session_state.page == 1:
     For Someone Special... ✨❤️
     </h1>
 """, unsafe_allow_html=True)
-    str.markdown('<div class="stylish-box">Ye choti si jagah maine sirf aapke liye banayi hai.</div>', unsafe_allow_html=True)
+    str.markdown("""
+    <div class="stylish-box">
+    <p style="color:white;font-size:18px;">
+    Ye choti si jagah maine sirf aapke liye banayi hai.
+    </p>
+    </div>
+""", unsafe_allow_html=True)
     if str.button("Open My Heart 💖"):
         str.session_state.page = 2
         str.rerun()
@@ -472,8 +480,6 @@ elif str.session_state.page == 8:
             </div>
         </div>
     ''', unsafe_allow_html=True)
-    
-
     if str.button("Back to Start 🔄", use_container_width=True):
         str.session_state.page = 1
         str.rerun()
