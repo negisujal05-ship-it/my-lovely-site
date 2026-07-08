@@ -10,6 +10,29 @@ if "page" not in str.session_state:
 
 # --- CSS STYLING ---
 CSS_BASE_STYLE = """
+.snowflake{
+    position:fixed;
+    top:-20px;
+    color:white;
+    pointer-events:none;
+    z-index:-1;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-50px);
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
 
@@ -161,7 +184,7 @@ h1,h2,h3,h4{
 str.markdown(CSS_BASE_STYLE, unsafe_allow_html=True)
 snow = ""
 
-for i in range(60):
+for i in range(15):    
     snow += f"""
     <div style="
     position:fixed;
@@ -198,7 +221,7 @@ def apply_slow_cosmic_animation():
 
     stars = ""
 
-    for i in range(120):
+    for i in range(40):
         stars += f"""
         <div style="
         position:fixed;
@@ -431,8 +454,4 @@ elif str.session_state.page == 8:
             </div>
         </div>
     ''', unsafe_allow_html=True)
-    if str.button("Back to Start 🔄", use_container_width=True):
-        str.session_state.page = 1
-        str.rerun()
-
     
