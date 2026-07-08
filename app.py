@@ -31,9 +31,9 @@ linear-gradient(180deg,#000814,#001d3d,#000000) !important;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 700px;
-    height: 700px;
-    z-index: 0; 
+    width:1200px;
+    height:1200px;
+    z-index: -1; 
     pointer-events: none;
 }
 
@@ -52,11 +52,71 @@ linear-gradient(180deg,#000814,#001d3d,#000000) !important;
 .orbit2 { width: 280px; height: 280px; animation: orbit 18s linear infinite; }
 .orbit3 { width: 400px; height: 400px; animation: orbit 26s linear infinite; }
 .orbit4 { width: 550px; height: 550px; animation: orbit 32s linear infinite; }
+.orbit5{
+    width:650px;
+    height:650px;
+    animation:orbit 40s linear infinite;
+}
+
+.orbit6{
+    width:760px;
+    height:760px;
+    animation:orbit 48s linear infinite;
+}
+.p6::after{
+    content:'';
+    position:absolute;
+    width:40px;
+    height:8px;
+    border:2px solid rgba(255,255,255,.6);
+    border-radius:50%;
+    top:10px;
+    left:-6px;
+}
+
+.orbit7{
+    width:880px;
+    height:880px;
+    animation:orbit 58s linear infinite;
+}
+
+.orbit8{
+    width:1000px;
+    height:1000px;
+    animation:orbit 70s linear infinite;
+}
 
 .planet { position: absolute; top: -10px; left: 50%; border-radius: 50%; transform: translateX(-50%); }
 .p1 { width: 12px; height: 12px; background: #00d4ff; box-shadow: 0 0 10px #00d4ff; }
 .p2 { width: 16px; height: 16px; background: #ff6b6b; box-shadow: 0 0 10px #ff6b6b; }
 .p3 { width: 20px; height: 20px; background: #8a2be2; box-shadow: 0 0 10px #8a2be2; }
+.p5{
+    width:30px;
+    height:30px;
+    background:#d2b48c;
+    box-shadow:0 0 15px #d2b48c;
+}
+
+.p6{
+    width:28px;
+    height:28px;
+    background:#f4e2d8;
+    box-shadow:0 0 15px #f4e2d8;
+}
+
+.p7{
+    width:24px;
+    height:24px;
+    background:#87ceeb;
+    box-shadow:0 0 15px #87ceeb;
+}
+
+.p8{
+    width:22px;
+    height:22px;
+    background:#4169e1;
+    box-shadow:0 0 15px #4169e1;
+}
 
 @keyframes orbit { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
 
@@ -126,6 +186,10 @@ str.markdown("""
     <div class="orbit orbit2"><div class="planet p2"></div></div>
     <div class="orbit orbit3"><div class="planet p3"></div></div>
     <div class="orbit orbit4"><div class="planet p2"></div></div>
+    <div class="orbit orbit5"><div class="planet p5"></div></div>
+    <div class="orbit orbit6"><div class="planet p6"></div></div>
+    <div class="orbit orbit7"><div class="planet p7"></div></div>
+    <div class="orbit orbit8"><div class="planet p8"></div></div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -368,19 +432,3 @@ elif str.session_state.page == 8:
         </div>
     ''', unsafe_allow_html=True)
     
-
-# CSS ko block ke BILKUL bahar rakhein (left mein koi space nahi)
-str.markdown("""
-<style>
-    .solar-system {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 700px;
-        height: 700px;
-        z-index: -1;
-        pointer-events: none;
-    }
-</style>
-""", unsafe_allow_html=True)
