@@ -473,3 +473,7 @@ elif str.session_state.page == 8:
         </div>
     ''', unsafe_allow_html=True)
     
+
+    if str.button("Back to Start 🔄", use_container_width=True):
+        str.session_state.page = 1
+        str.rerun()
