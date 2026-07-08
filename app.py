@@ -184,7 +184,7 @@ h1,h2,h3,h4{
 str.markdown(CSS_BASE_STYLE, unsafe_allow_html=True)
 snow = ""
 
-for i in range(15):    
+for i in range(20):    
     snow += f"""
     <div style="
     position:fixed;
@@ -221,7 +221,7 @@ def apply_slow_cosmic_animation():
 
     stars = ""
 
-    for i in range(40):
+    for i in range(50):
         stars += f"""
         <div style="
         position:fixed;
