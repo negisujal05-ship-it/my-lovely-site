@@ -421,7 +421,7 @@ elif str.session_state.page == 5:
 # PAGE 6 (Krishna Prem Definition)
 elif str.session_state.page == 6:
     str.markdown("<h1>Krishna Prem: Param Satya ✨</h1>", unsafe_allow_html=True)
-   str.image("images/page6.JPG", use_container_width=True)
+    str.image("images/page6.JPG", use_container_width=True)
     str.markdown(''' 
         <div class="stylish-box"> 
             <h3>🌌 Bhagwan Krishna ka Prem Sandesh 🌌</h3> 
