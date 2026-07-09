@@ -313,7 +313,7 @@ if str.session_state.page == 1:
     </h1>
 """, unsafe_allow_html=True)
     
-   image_watermark_box("images/page1.jpg", ...)
+    image_watermark_box("images/page1.jpg", ...)
     str.markdown("""
     <div class="stylish-box">
     <p style="color:white;font-size:18px;">
