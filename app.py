@@ -315,11 +315,10 @@ if str.session_state.page == 1:
     """, unsafe_allow_html=True)
 
     image_watermark_box(
-        "images/page1.jpg",
-        "✨ For Someone Special ✨",
-        "Ye choti si jagah maine sirf aapke liye banayi hai. 💖"
-    )
-
+    "images/page1.jpg",
+    "✨ For Someone Special ✨",
+    "Ye choti si jagah maine sirf aapke liye banayi hai. 💖"
+)
     if str.button("🌌 Enter My Universe ✨"):
         str.session_state.page = 2
         str.rerun()
