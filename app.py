@@ -317,7 +317,7 @@ elif str.session_state.page == 2:
 elif str.session_state.page == 3:
     apply_slow_cosmic_animation()
     str.markdown("<h1>The Eternal Love ✨🙏</h1>", unsafe_allow_html=True)
-  str.image("images/page3.JPG", use_container_width=True)  
+    str.image("images/page3.JPG", use_container_width=True)  
     str.markdown('''
         <div class="stylish-box">
             <div class="image-watermark"></div>
