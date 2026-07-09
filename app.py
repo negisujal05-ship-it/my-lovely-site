@@ -165,6 +165,19 @@ linear-gradient(180deg,#000814,#001d3d,#000000) !important;
     color: white !important;
     box-shadow: 0 0 25px rgba(0,191,255,0.15);
 }
+
+/* IMAGE STYLE */
+
+.stylish-box img{
+    border-radius:25px;
+    box-shadow:
+        0 0 20px rgba(255,255,255,0.15),
+        0 0 40px rgba(0,191,255,0.15);
+    border:1px solid rgba(255,255,255,0.15);
+}
+
+</style>
+"""
 .vikar-box { margin-bottom: 15px; padding: 10px; border-left: 3px solid #ff6b8b; background: rgba(255,255,255,0.05); }
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
 
@@ -260,6 +273,12 @@ if str.session_state.page == 1:
     For Someone Special... ✨❤️
     </h1>
 """, unsafe_allow_html=True)
+    
+    str.image(
+        "images/page1.jpg",
+        use_container_width=True
+    )
+
     str.markdown("""
     <div class="stylish-box">
     <p style="color:white;font-size:18px;">
@@ -275,6 +294,8 @@ if str.session_state.page == 1:
 elif str.session_state.page == 2:
     apply_slow_cosmic_animation()
     str.markdown("<h1>Our Cosmic Universe ✨</h1>", unsafe_allow_html=True)
+
+    str.image("images/page2.JPG", use_container_width=True)
     
     str.markdown('''
         <div class="stylish-box">
@@ -299,7 +320,7 @@ elif str.session_state.page == 2:
 elif str.session_state.page == 3:
     apply_slow_cosmic_animation()
     str.markdown("<h1>The Eternal Love ✨🙏</h1>", unsafe_allow_html=True)
-    
+  str.image("images/page3.JPG", use_container_width=True)  
     str.markdown('''
         <div class="stylish-box">
             <div class="image-watermark"></div>
@@ -323,7 +344,7 @@ elif str.session_state.page == 3:
 elif str.session_state.page == 4:
     apply_slow_cosmic_animation()
     str.markdown("<h1>The Ultimate Destination ❤️</h1>", unsafe_allow_html=True)
-    
+    str.image("images/page4.JPG", use_container_width=True)
     str.markdown('''
         <div class="stylish-box">
             <div class="image-watermark"></div>
@@ -347,7 +368,7 @@ elif str.session_state.page == 4:
 elif str.session_state.page == 5:
     apply_slow_cosmic_animation()
     str.markdown("<h1>Vikaro Se Mukti: Sacha Prem 🌌</h1>", unsafe_allow_html=True)
-    
+    str.image("images/page5.JPG", use_container_width=True)
     str.markdown('''
         <div class="stylish-box">
             <div class="image-watermark"></div>
@@ -403,6 +424,7 @@ elif str.session_state.page == 5:
 # PAGE 6 (Krishna Prem Definition)
 elif str.session_state.page == 6:
     str.markdown("<h1>Krishna Prem: Param Satya ✨</h1>", unsafe_allow_html=True)
+   str.image("images/page6.JPG", use_container_width=True)
     str.markdown(''' 
         <div class="stylish-box"> 
             <h3>🌌 Bhagwan Krishna ka Prem Sandesh 🌌</h3> 
@@ -427,7 +449,7 @@ elif str.session_state.page == 6:
 elif str.session_state.page == 7:
     apply_slow_cosmic_animation()
     str.markdown("<h1>Sudh Prem Ki Pribhasha 🌌</h1>", unsafe_allow_html=True)
-    
+    str.image("images/page7.JPG", use_container_width=True)
     str.markdown('''
         <div class="stylish-box">
             <div class="image-watermark"></div>
@@ -461,7 +483,7 @@ elif str.session_state.page == 7:
 elif str.session_state.page == 8:
     apply_slow_cosmic_animation()
     str.markdown("<h1>A Heartfelt Thank You ❤️</h1>", unsafe_allow_html=True)
-    
+    str.image("images/page8.JPG", use_container_width=True)
     str.markdown('''
         <div class="stylish-box" style="border: 2px solid #ff6b8b;">
             <div class="image-watermark"></div>
