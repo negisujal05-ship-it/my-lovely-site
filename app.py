@@ -267,7 +267,7 @@ if str.session_state.page == 1:
     </p>
     </div>
 """, unsafe_allow_html=True)
-    if str.button("Open My Heart 💖"):
+    if str.button("🌌 Enter My Universe ✨"):
         str.session_state.page = 2
         str.rerun()
 
