@@ -307,20 +307,27 @@ def apply_slow_cosmic_animation():
     str.markdown(stars, unsafe_allow_html=True)
 
 if str.session_state.page == 1:
+
     str.markdown("""
     <h1 style='color:white;text-align:center;'>
     For Someone Special... ✨❤️
     </h1>
-""", unsafe_allow_html=True)
-    
-    image_watermark_box("images/page1.jpg", ...)
+    """, unsafe_allow_html=True)
+
+    image_watermark_box(
+        "images/page1.jpg",
+        "✨ For Someone Special ✨",
+        "Ye choti si jagah maine sirf aapke liye banayi hai. 💖"
+    )
+
     str.markdown("""
     <div class="stylish-box">
-    <p style="color:white;font-size:18px;">
-    Ye choti si jagah maine sirf aapke liye banayi hai.
-    </p>
+        <p style="color:white;font-size:18px;text-align:center;">
+        Aapki muskaan kisi sitare se kam nahi. 🌌✨
+        </p>
     </div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
+
     if str.button("🌌 Enter My Universe ✨"):
         str.session_state.page = 2
         str.rerun()
