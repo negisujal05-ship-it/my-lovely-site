@@ -175,9 +175,6 @@ linear-gradient(180deg,#000814,#001d3d,#000000) !important;
         0 0 40px rgba(0,191,255,0.15);
     border:1px solid rgba(255,255,255,0.15);
 }
-
-</style>
-"""
 .vikar-box { margin-bottom: 15px; padding: 10px; border-left: 3px solid #ff6b8b; background: rgba(255,255,255,0.05); }
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
 
