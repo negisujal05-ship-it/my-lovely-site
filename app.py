@@ -220,7 +220,7 @@ if st.session_state.page == 1:
     st.markdown("<h1 style='color:white;text-align:center;'>For Someone Special... ✨❤️</h1>", unsafe_allow_html=True)
 
     styled_box(
-        "images/page1.jpg",
+        "images/page1.JPG",
         """<h2>✨ For Someone Special ✨</h2>
 <p>Ye choti si jagah maine sirf aapke liye banayi hai. 💖</p>"""
     )
