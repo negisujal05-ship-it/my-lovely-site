@@ -418,7 +418,7 @@ elif st.session_state.page == 8:
     st.markdown("<h1>A Heartfelt Thank You ❤️</h1>", unsafe_allow_html=True)
     styled_box(
         "images/page8.JPG",
-        """<div class="watermark" style="font-size:90px;font-weight:900;background:linear-gradient(90deg,#ffffff,#00d4ff,#8a2be2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:0.35;letter-spacing:8px;">THANKS</div>
+       <div class="watermark" style="font-size:90px;font-weight:900;background:linear-gradient(90deg,#ffffff,#00d4ff,#8a2be2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:1;letter-spacing:8px;">THANKS</div>
 <h3 style="color: #ff6b8b; font-size: 32px; margin-bottom: 20px;">🌹 Ek Pyari Si Shayari 🌹</h3>
 <p style="font-size: 20px; color: #ffffff; line-height: 1.8; font-style: italic; margin-bottom: 30px;">
 "Na jaane kab aapki aadat si ho gayi,<br>
