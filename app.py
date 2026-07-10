@@ -111,6 +111,7 @@ linear-gradient(180deg,#000814,#001d3d,#000000) !important;
 .stylish-box{
     position:relative;
     overflow:hidden;
+    min-height:420px;
     background: rgba(0,0,0,0.55);
     padding: 30px;
     border-radius: 25px;
@@ -120,32 +121,40 @@ linear-gradient(180deg,#000814,#001d3d,#000000) !important;
     box-shadow: 0 0 25px rgba(0,191,255,0.15);
 }
 
-/* the photo itself, filling the box, darkened via filter */
+/* the photo itself, filling the box, lightly darkened via filter */
 .stylish-bg{
     position:absolute;
     top:0; left:0;
     width:100%;
     height:100%;
     object-fit:cover;
-    opacity:0.55;
-    filter:brightness(0.35) saturate(1.1);
+    object-position:center;
+    opacity:0.9;
+    filter:brightness(0.6) saturate(1.1);
     z-index:0;
 }
 
-/* extra dark overlay so text always stays readable regardless of photo brightness */
+/* light dark overlay - photo stays visible, just enough to help contrast */
 .stylish-overlay{
     position:absolute;
     top:0; left:0;
     width:100%;
     height:100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.3);
     z-index:1;
 }
 
-/* actual text/content sits above the photo + overlay */
+/* actual text/content sits above the photo + overlay; text-shadow keeps it readable over the visible photo */
 .box-content{
     position:relative;
     z-index:2;
+}
+
+.box-content h1, .box-content h2, .box-content h3, .box-content h4,
+.box-content p, .box-content .watermark{
+    text-shadow:
+        0 2px 6px rgba(0,0,0,0.9),
+        0 0 12px rgba(0,0,0,0.7);
 }
 
 .vikar-box { position:relative; z-index:2; margin-bottom: 15px; padding: 10px; border-left: 3px solid #ff6b8b; background: rgba(255,255,255,0.08); }
