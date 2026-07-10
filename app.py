@@ -122,16 +122,26 @@ linear-gradient(180deg,#000814,#001d3d,#000000) !important;
 }
 
 /* the photo itself, filling the box, lightly darkened via filter */
+/* !important used to override Streamlit's default <img> styling (which adds
+   its own border-radius, box-shadow, and max-width) that was shrinking the photo
+   into a smaller rounded rectangle instead of filling the whole box. */
 .stylish-bg{
-    position:absolute;
-    top:0; left:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center;
+    position:absolute !important;
+    top:0 !important;
+    left:0 !important;
+    width:100% !important;
+    height:100% !important;
+    max-width:100% !important;
+    object-fit:cover !important;
+    object-position:center !important;
     opacity:0.9;
     filter:brightness(0.6) saturate(1.1);
     z-index:0;
+    margin:0 !important;
+    padding:0 !important;
+    border:none !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
 }
 
 /* light dark overlay - photo stays visible, just enough to help contrast */
