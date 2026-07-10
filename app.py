@@ -208,11 +208,22 @@ def styled_box(image_path, inner_html, box_style=""):
     st.markdown(html, unsafe_allow_html=True)
 
 
-# --- SNOW EFFECT ---
-snow = ""
-for i in range(15):
-    snow += f"""<div style="position:fixed;left:{random.randint(0,100)}%;top:-20px;color:white;font-size:{random.randint(10,18)}px;animation: fall {random.randint(10,25)}s linear infinite;z-index:-1;">❄</div>"""
-st.markdown(snow, unsafe_allow_html=True)
+# --- SNOW + HEARTS + ROSES FALLING EFFECT ---
+falling_items = ""
+
+# Snowflakes - more of them, falling slower
+for i in range(35):
+    falling_items += f"""<div style="position:fixed;left:{random.randint(0,100)}%;top:-20px;color:white;font-size:{random.randint(10,18)}px;animation: fall {random.randint(20,40)}s linear infinite;animation-delay:-{random.randint(0,40)}s;z-index:-1;">❄</div>"""
+
+# Red hearts - falling slowly
+for i in range(12):
+    falling_items += f"""<div style="position:fixed;left:{random.randint(0,100)}%;top:-20px;color:#ff2d55;font-size:{random.randint(14,24)}px;animation: fall {random.randint(25,45)}s linear infinite;animation-delay:-{random.randint(0,45)}s;z-index:-1;text-shadow:0 0 8px rgba(255,45,85,0.7);">❤</div>"""
+
+# Roses - falling slowly
+for i in range(8):
+    falling_items += f"""<div style="position:fixed;left:{random.randint(0,100)}%;top:-20px;font-size:{random.randint(16,26)}px;animation: fall {random.randint(28,50)}s linear infinite;animation-delay:-{random.randint(0,50)}s;z-index:-1;">🌹</div>"""
+
+st.markdown(falling_items, unsafe_allow_html=True)
 
 # --- SOLAR SYSTEM HTML ---
 st.markdown("""<div class="solar-system">
