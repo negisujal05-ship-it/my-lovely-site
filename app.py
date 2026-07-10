@@ -134,7 +134,6 @@ linear-gradient(180deg,#000814,#001d3d,#000000) !important;
     max-width:100% !important;
     object-fit:cover !important;
     object-position:center !important;
-    opacity:0.9;
     filter:brightness(0.6) saturate(1.1);
     z-index:0;
     margin:0 !important;
@@ -142,6 +141,14 @@ linear-gradient(180deg,#000814,#001d3d,#000000) !important;
     border:none !important;
     border-radius:0 !important;
     box-shadow:none !important;
+    opacity:0;
+    animation: photoFadeIn 0.9s ease forwards;
+    animation-delay:0.1s;
+}
+
+@keyframes photoFadeIn{
+    from{ opacity:0; }
+    to{ opacity:0.9; }
 }
 
 /* light dark overlay - photo stays visible, just enough to help contrast */
@@ -186,15 +193,13 @@ def styled_box(image_path, inner_html, box_style=""):
     One combined box: darkened background photo + overlay + text/content on top.
     NOTE: HTML must NOT be indented with 4+ spaces after a blank line,
     otherwise Streamlit/Markdown treats it as a code block and shows raw text.
-    The photo starts invisible and fades in smoothly once it finishes loading,
-    instead of abruptly popping in after the text.
+    NOTE 2: Streamlit strips inline JS event handlers (onload, onclick, etc.)
+    even with unsafe_allow_html=True, so the fade-in is done with a pure
+    CSS animation (see .stylish-bg in CSS_BASE_STYLE) instead of JS.
     """
     image_url = f"https://raw.githubusercontent.com/negisujal05-ship-it/my-lovely-site/main/{image_path}"
     html = f"""<div class="stylish-box" style="{box_style}">
-<img src="{image_url}" class="stylish-bg" loading="eager" fetchpriority="high"
-     style="opacity:0; transition: opacity 0.7s ease;"
-     onload="this.style.opacity=0.9;"
-     onerror="console.warn('Image failed to load: {image_url}'); this.style.opacity=0;">
+<img src="{image_url}" class="stylish-bg" loading="eager" fetchpriority="high">
 <div class="stylish-overlay"></div>
 <div class="box-content">
 {inner_html}
