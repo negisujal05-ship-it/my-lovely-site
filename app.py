@@ -116,7 +116,6 @@ linear-gradient(180deg,#000814,#001d3d,#000000) !important;
     padding: 30px;
     border-radius: 25px;
     border: 1px solid rgba(255,255,255,0.15);
-    backdrop-filter: blur(12px);
     color: white !important;
     box-shadow: 0 0 25px rgba(0,191,255,0.15);
 }
@@ -134,6 +133,7 @@ linear-gradient(180deg,#000814,#001d3d,#000000) !important;
     max-width:100% !important;
     object-fit:cover !important;
     object-position:center !important;
+    image-rendering:auto;
     filter:brightness(0.6) saturate(1.1);
     z-index:0;
     margin:0 !important;
