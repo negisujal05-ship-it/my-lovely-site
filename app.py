@@ -177,8 +177,9 @@ def styled_box(image_path, inner_html, box_style=""):
     NOTE: HTML must NOT be indented with 4+ spaces after a blank line,
     otherwise Streamlit/Markdown treats it as a code block and shows raw text.
     """
+    image_url = f"https://raw.githubusercontent.com/negisujal05-ship-it/my-lovely-site/main/{image_path}"
     html = f"""<div class="stylish-box" style="{box_style}">
-<img src="https://raw.githubusercontent.com/negisujal05-ship-it/my-lovely-site/main/{image_path}" class="stylish-bg">
+<img src="{image_url}" class="stylish-bg" onerror="console.warn('Image failed to load: {image_url}'); this.style.opacity=0;">
 <div class="stylish-overlay"></div>
 <div class="box-content">
 {inner_html}
