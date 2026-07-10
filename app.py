@@ -28,10 +28,33 @@ h1{
 /* Background aur Animation Layering */
 .stApp {
     background:
-radial-gradient(circle at 20% 20%, rgba(0,191,255,0.2), transparent 30%),
-radial-gradient(circle at 80% 70%, rgba(138,43,226,0.2), transparent 30%),
-linear-gradient(180deg,#000814,#001d3d,#000000) !important;
-    overflow: hidden;
+    radial-gradient(circle at 20% 20%, rgba(0,191,255,0.2), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(138,43,226,0.2), transparent 30%),
+    linear-gradient(180deg,#000814,#001d3d,#000000) !important;
+
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+
+    .stApp {
+        min-height: 100vh;
+        background-attachment: scroll;
+    }
+
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
+
+    .main {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
 }
 
 /* Snow Effect */
