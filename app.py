@@ -417,18 +417,21 @@ elif st.session_state.page == 8:
     apply_slow_cosmic_animation()
     st.markdown("<h1>A Heartfelt Thank You ❤️</h1>", unsafe_allow_html=True)
     styled_box(
-        "images/page8.JPG",
-        <div style="
-        position:absolute;
-        top:50%;
-        left:50%;
-        transform:translate(-50%,-50%);
-        z-index:9999;
-        color:white;
-        font-size:90px;
-        font-weight:900;">
-        THANKS
-        </div>
+    "images/page8.JPG",
+    """
+    <div style="
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:9999;
+    color:white;
+    font-size:90px;
+    font-weight:900;">
+    THANKS
+    </div>
+       box_style="border: 2px solid #ff6b8b;"
+)
 <h3 style="color: #ff6b8b; font-size: 32px; margin-bottom: 20px;">🌹 Ek Pyari Si Shayari 🌹</h3>
 <p style="font-size: 20px; color: #ffffff; line-height: 1.8; font-style: italic; margin-bottom: 30px;">
 "Na jaane kab aapki aadat si ho gayi,<br>
