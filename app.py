@@ -186,10 +186,15 @@ def styled_box(image_path, inner_html, box_style=""):
     One combined box: darkened background photo + overlay + text/content on top.
     NOTE: HTML must NOT be indented with 4+ spaces after a blank line,
     otherwise Streamlit/Markdown treats it as a code block and shows raw text.
+    The photo starts invisible and fades in smoothly once it finishes loading,
+    instead of abruptly popping in after the text.
     """
     image_url = f"https://raw.githubusercontent.com/negisujal05-ship-it/my-lovely-site/main/{image_path}"
     html = f"""<div class="stylish-box" style="{box_style}">
-<img src="{image_url}" class="stylish-bg" onerror="console.warn('Image failed to load: {image_url}'); this.style.opacity=0;">
+<img src="{image_url}" class="stylish-bg" loading="eager" fetchpriority="high"
+     style="opacity:0; transition: opacity 0.7s ease;"
+     onload="this.style.opacity=0.9;"
+     onerror="console.warn('Image failed to load: {image_url}'); this.style.opacity=0;">
 <div class="stylish-overlay"></div>
 <div class="box-content">
 {inner_html}
