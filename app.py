@@ -415,49 +415,22 @@ Sacha prem wahi hai jahan koi shart na ho, koi maang na ho, bas ek dusre ki aatm
 # --- PAGE 8 (Final Page) ---
 elif st.session_state.page == 8:
     apply_slow_cosmic_animation()
-
-    st.markdown(
-        "<h1>A Heartfelt Thank You ❤️</h1>",
-        unsafe_allow_html=True
+    st.markdown("<h1>A Heartfelt Thank You ❤️</h1>", unsafe_allow_html=True)
+    styled_box(
+        "images/page8.JPG",
+        """<div class="watermark" style="font-size:90px;font-weight:900;background:linear-gradient(90deg,#ffffff,#00d4ff,#8a2be2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:0.35;letter-spacing:8px;">THANKS</div>
+<h3 style="color: #ff6b8b; font-size: 32px; margin-bottom: 20px;">🌹 Ek Pyari Si Shayari 🌹</h3>
+<p style="font-size: 20px; color: #ffffff; line-height: 1.8; font-style: italic; margin-bottom: 30px;">
+"Na jaane kab aapki aadat si ho gayi,<br>
+Aapki har baat mein barkat si ho gayi.<br>
+Is chote se safar mein, aapke hone se,<br>
+Meri zindagi ab ek khoobsurat ibaadat si ho gayi."
+</p>
+<hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2);">
+<h4 style="color: #ffffff; font-size: 22px; margin-top: 20px;">✨ Special Thanks to Visit My Site ✨</h4>
+<p style="font-size: 16px; color: #cccccc;">Aapka yahan aana mere liye kisi vardaan se kam nahi.</p>""",
+        box_style="border: 2px solid #ff6b8b;"
     )
-
-styled_box(
-    "images/page8.JPG",
-    """
-    <div style="
-    text-align:center;
-    color:white;
-    font-size:90px;
-    font-weight:900;
-    opacity:0.5;
-    letter-spacing:8px;
-    margin-bottom:30px;">
-    THANKS
-    </div>
-
-    <h3 style="color: #ff6b8b; font-size: 32px; margin-bottom: 20px;">
-    🌹 Ek Pyari Si Shayari 🌹
-    </h3>
-
-    <p style="font-size: 20px; color: #ffffff; line-height: 1.8; font-style: italic; margin-bottom: 30px;">
-    Na jaane kab aapki aadat si ho gayi,<br>
-    Aapki har baat mein barkat si ho gayi.<br>
-    Is chote se safar mein, aapke hone se,<br>
-    Meri zindagi ab ek khoobsurat ibaadat si ho gayi.
-    </p>
-
-    <hr style="border:0; border-top:1px solid rgba(255,255,255,0.2);">
-
-    <h4 style="color:#ffffff; font-size:22px; margin-top:20px;">
-    ✨ Special Thanks to Visit My Site ✨
-    </h4>
-
-    <p style="font-size:16px; color:#cccccc;">
-    Aapka yahan aana mere liye kisi vardaan se kam nahi.
-    </p>
-    """,
-    box_style="border: 2px solid #ff6b8b;"
-)
 
     if st.button("Back to Start 🔄", use_container_width=True):
         st.session_state.page = 1
