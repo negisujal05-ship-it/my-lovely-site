@@ -34,8 +34,9 @@ h1{
 
     min-height: 100vh;
     width: 100%;
-    overflow-x: hidden;
-}
+     overflow-x: hidden;
+    overflow-y: auto;
+    }
 
 /* Mobile Responsive */
 @media screen and (max-width: 768px) {
@@ -417,14 +418,15 @@ elif st.session_state.page == 8:
     st.markdown("<h1>A Heartfelt Thank You ❤️</h1>", unsafe_allow_html=True)
     styled_box(
         "images/page8.JPG",
-  <div class="watermark"
-style="
-font-size:90px;
-font-weight:900;
+<div style="
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+z-index:9999;
 color:white;
-opacity:0.5;
-letter-spacing:8px;
-text-align:center;">
+font-size:90px;
+font-weight:900;">
 THANKS
 </div>
 <h3 style="color: #ff6b8b; font-size: 32px; margin-bottom: 20px;">🌹 Ek Pyari Si Shayari 🌹</h3>
